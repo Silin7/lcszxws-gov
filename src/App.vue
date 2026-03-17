@@ -19,6 +19,8 @@ const switchValue = ref(false);
 const showMessage = () => {
   ElMessage.success("这是一个成功消息");
 };
+
+const value2 = ref();
 </script>
 
 <template>
@@ -98,6 +100,8 @@ const showMessage = () => {
       <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a>
       to read the documentation
     </p>
+
+    <el-time-picker v-model="value2" arrow-control placeholder="Arbitrary time" />
   </div>
 </template>
 
