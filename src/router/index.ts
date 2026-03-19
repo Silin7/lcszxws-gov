@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from "vue-router";
 import useHeaderStore from '@/store/modules/header'
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -9,6 +8,78 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: '聊城市政协文史馆',
       stcode: 'home',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/news-list',
+    name: 'news-list',
+    component: () => import('@/views/news-list.vue'),
+    meta: {
+      title: '文史动态-聊城市政协文史馆',
+      stcode: 'news-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/notice-list',
+    name: 'notice-list',
+    component: () => import('@/views/notice-list.vue'),
+    meta: {
+      title: '通知公告-聊城市政协文史馆',
+      stcode: 'notice-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/culture-list',
+    name: 'culture-list',
+    component: () => import('@/views/culture-list.vue'),
+    meta: {
+      title: '地方撷英-聊城市政协文史馆',
+      stcode: 'culture-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/people-list',
+    name: 'people-list',
+    component: () => import('@/views/people-list.vue'),
+    meta: {
+      title: '人物春秋-聊城市政协文史馆',
+      stcode: 'people-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/literature-list',
+    name: 'literature-list',
+    component: () => import('@/views/literature-list.vue'),
+    meta: {
+      title: '文史典籍-聊城市政协文史馆',
+      stcode: 'literature-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/art-list',
+    name: 'art-list',
+    component: () => import('@/views/art-list.vue'),
+    meta: {
+      title: '书画作品-聊城市政协文史馆',
+      stcode: 'art-list',
       website: true,
       hashead: true,
       hasfoot: true,
