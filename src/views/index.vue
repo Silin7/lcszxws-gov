@@ -86,6 +86,142 @@ const videoData = ref({
   title: "丹青迎国庆 政协见行动 聊城市书香政协书画作品展",
   video: "http://lcwsg.lcszx.gov.cn:88/public/video/shuhua01.mp4",
 });
+
+// 文史典籍（通栏）
+const literatureData: any = ref([
+  {
+    id: "1",
+    title: "《聊城文化史》",
+    desc: "全面系统记述聊城从古至今文化方面权威史著。",
+    author: "聊城市政协委员会编",
+    img: "/public/images/books/wenhuashi.jpg",
+  },
+  {
+    id: "2",
+    title: "《东昌府誌校注》",
+    desc: " 该志始修于乾隆三十七年（1772年），历时两年完成编纂，乾隆四十二年（1777年）正式刊行。 ",
+    author: "曲成立校注",
+    img: "/public/images/books/dongchangfuzhi.jpg",
+  },
+  {
+    id: "3",
+    title: "《聊城重要历史人物》",
+    desc: " 详尽地介绍了160多位在中国历史和聊城历史上曾经产生重大影响的聊城籍或客籍人物。 ",
+    author: "聊城市政协文史资料委员会",
+    img: "/public/images/books/lishirenwu.jpg",
+  },
+  {
+    id: "4",
+    title: "《阳谷县名著记忆》",
+    desc: " 以水浒文化为主线串联起水浒遗迹、水浒遗珍、水浒非遗、水浒论坛和水浒诗文五大篇章。 ",
+    author: "聊城市政协文化史和学习委员会",
+    img: "/public/images/books/yanggu.jpg",
+  },
+]);
+
+// 人物春秋（通栏）
+const peopleData: any = ref([
+  {
+    id: "1",
+    name: "季羡林",
+    title: "国际东方学大师",
+    desc: " 中国山东省聊城市临清人，字希逋，又字齐奘。国际著名东方学大师、语言学家、文学家、国学家、佛学家、史学家、教育家和社会活动家。历任中国科学院哲学社会科学部委员、聊城大学名誉校长、北京大学副校长、中国社会科学院南亚研究所所长，第一批北京大学哲学社会科学资深教授，与饶宗颐并称为“南饶北季”。 ",
+    img: "/public/images/jixianlin.jpg",
+  },
+  {
+    id: "2",
+    name: "傅斯年",
+    title: "历史学家、古典文学研究专家",
+    desc: " 初字梦簪，字孟真，山东聊城人 ",
+    img: "/public/images/fusinian.jpg",
+  },
+  {
+    id: "3",
+    name: "孙大石",
+    title: "中国书画家",
+    desc: " 又名孙瑛，山东高唐人，中国美术家协会理事 ",
+    img: "/public/images/sundashi.jpg",
+  },
+]);
+
+// 书画作品（通栏）
+const artData: any = ref([
+  {
+    id: "1",
+    title: "《吉祥溪山》",
+    author: "韩英凌",
+    desc: "以水墨与色彩结合，描绘层叠山峦、瀑布溪流及山间亭台，笔墨苍劲，意境深远。",
+    img: "/public/images/art/art01.jpg",
+    detailed: true,
+  },
+  {
+    id: "3",
+    img: "/public/images/art/art03.jpg",
+    detailed: false,
+  },
+  {
+    id: "4",
+    img: "/public/images/art/art04.jpg",
+    detailed: false,
+  },
+  {
+    id: "5",
+    img: "/public/images/art/art05.jpg",
+    detailed: false,
+  },
+  {
+    id: "2",
+    title: "书法作品",
+    author: "方建光",
+    desc: "笔法流畅自然，字形大小错落，墨色浓淡变化丰富，整体布局疏密有致，展现了书写者对传统书法的继承与个人风格的融合。传承了“二王”书法的艺术精髓。",
+    img: "/public/images/art/fangjianguang001.jpeg",
+    detailed: true,
+  },
+  {
+    id: "6",
+    img: "/public/images/art/art06.jpg",
+    detailed: false,
+  },
+  {
+    id: "7",
+    img: "/public/images/art/art07.jpg",
+    detailed: false,
+  },
+  {
+    id: "8",
+    img: "/public/images/art/art08.jpg",
+    detailed: false,
+  },
+]);
+
+// 友情链接（通栏）
+const friendData: any = ref([
+  {
+    id: "1",
+    name: "山东省政协",
+    url: "https://www.sdzx.gov.cn/",
+  },
+  {
+    id: "2",
+    name: "聊城市政协",
+    url: "https://www.lcszx.gov.cn/",
+  },
+  {
+    id: "3",
+    name: "山东政协文史馆",
+    url: "https://www.sdzx.gov.cn/sdszxwsg/",
+  },
+  {
+    id: "4",
+    name: "淄博政协文史馆",
+    url: "http://www.zbszx.gov.cn/html/list_724_1.html/",
+  },
+  {
+    id: "5",
+    name: "威海政协文史馆",
+    url: "http://zx.weihai.gov.cn/col/col162656/index.html/",
+  },
+]);
 </script>
 
 <template>
@@ -270,88 +406,26 @@ const videoData = ref({
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">文史典籍</h2>
-            <a href="/literature-list.html" class="more-link">更多&gt;&gt;</a>
+            <a href="/literature-list.html" @click.prevent="pageJump('literature-list')"
+              class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="literature-grid">
             <!-- 第一本书 -->
-            <div class="literature-item">
+            <div v-for="(item, index) in literatureData" :key="index" class="literature-item">
               <a href="/literature/detail_1.html" class="book-link">
                 <div class="book-cover">
-                  <img src="/public/images/books/wenhuashi.jpg" alt="聊城文化史" class="book-img" />
+                  <img :src="item.img" alt="item.title" class="book-img" />
                   <div class="book-hover">
                     <span>查看详情</span>
                   </div>
                 </div>
                 <div class="book-info">
-                  <h3 class="book-title">《聊城文化史》</h3>
+                  <h3 class="book-title">{{ item.title }}</h3>
                   <p class="book-desc">
-                    全面系统记述聊城从古至今文化方面权威史著。
+                    {{ item.desc }}
                   </p>
                   <div class="book-meta">
-                    <span class="book-author">聊城市政协委员会编</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- 第二本书 -->
-            <div class="literature-item">
-              <a href="/literature/detail_5.html" class="book-link">
-                <div class="book-cover">
-                  <img src="/public/images/books/dongchangfuzhi.jpg" alt="东昌府誌" class="book-img" />
-                  <div class="book-hover">
-                    <span>查看详情</span>
-                  </div>
-                </div>
-                <div class="book-info">
-                  <h3 class="book-title">《东昌府誌校注》</h3>
-                  <p class="book-desc">
-                    该志始修于乾隆三十七年（1772年），历时两年完成编纂，乾隆四十二年（1777年）正式刊行。
-                  </p>
-                  <div class="book-meta">
-                    <span class="book-author">曲成立校注</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- 第三本书 -->
-            <div class="literature-item">
-              <a href="/literature/detail_3.html" class="book-link">
-                <div class="book-cover">
-                  <img src="/public/images/books/lishirenwu.jpg" alt="聊城重要历史人物" class="book-img" />
-                  <div class="book-hover">
-                    <span>查看详情</span>
-                  </div>
-                </div>
-                <div class="book-info">
-                  <h3 class="book-title">《聊城重要历史人物》</h3>
-                  <p class="book-desc">
-                    详尽地介绍了160多位在中国历史和聊城历史上曾经产生重大影响的聊城籍或客籍人物。
-                  </p>
-                  <div class="book-meta">
-                    <span class="book-author">聊城市政协文史资料委员会</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- 第四本书 -->
-            <div class="literature-item">
-              <a href="/ebook/yanggumingzhu/mobile/index.html" class="book-link">
-                <div class="book-cover">
-                  <img src="/public/images/books/yanggu.jpg" alt="聊城脱贫攻坚口述史" class="book-img" />
-                  <div class="book-hover">
-                    <span>查看详情</span>
-                  </div>
-                </div>
-                <div class="book-info">
-                  <h3 class="book-title">《阳谷县名著记忆》</h3>
-                  <p class="book-desc">
-                    以水浒文化为主线串联起水浒遗迹、水浒遗珍、水浒非遗、水浒论坛和水浒诗文五大篇章。
-                  </p>
-                  <div class="book-meta">
-                    <span class="book-author">聊城市政协文化史和学习委员会</span>
+                    <span class="book-author">{{ item.author }}</span>
                   </div>
                 </div>
               </a>
@@ -368,42 +442,17 @@ const videoData = ref({
             <a href="/people-list.html" class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="people-grid">
-            <div class="people-item featured">
+            <div v-for="(item, index) in peopleData" :key="index"
+              :class="{ 'people-item': true, featured: index === 0 }">
               <a href="/people/people-jixianlin.html" class="people-link">
                 <div class="people-image">
-                  <img src="/public/images/jixianlin.jpg" style="max-height: 450px; width: auto" />
+                  <img :src="item.img" style="max-height: 450px; width: auto" />
                 </div>
                 <div class="people-info">
-                  <h3 class="people-name">季羡林</h3>
-                  <p class="people-title">国际东方学大师</p>
+                  <h3 class="people-name">{{ item.name }}</h3>
+                  <p class="people-title">{{ item.title }}</p>
                   <p class="people-desc">
-                    中国山东省聊城市临清人，字希逋，又字齐奘。国际著名东方学大师、语言学家、文学家、国学家、佛学家、史学家、教育家和社会活动家。历任中国科学院哲学社会科学部委员、聊城大学名誉校长、北京大学副校长、中国社会科学院南亚研究所所长，第一批北京大学哲学社会科学资深教授，与饶宗颐并称为“南饶北季”。
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div class="people-item">
-              <a href="/people/people-fusinian.html" class="people-link">
-                <div class="people-image">
-                  <img src="/public/images/fusinian.jpg" style="width: auto" />
-                </div>
-                <div class="people-info">
-                  <h3 class="people-name">傅斯年</h3>
-                  <p class="people-title">历史学家、古典文学研究专家</p>
-                  <p class="people-desc">初字梦簪，字孟真，山东聊城人</p>
-                </div>
-              </a>
-            </div>
-            <div class="people-item">
-              <a href="/people/people-sundashi.html" class="people-link">
-                <div class="people-image">
-                  <img src="/public/images/sundashi.jpg" style="width: auto" />
-                </div>
-                <div class="people-info">
-                  <h3 class="people-name">孙大石</h3>
-                  <p class="people-title">中国书画家</p>
-                  <p class="people-desc">
-                    又名孙瑛，山东高唐人，中国美术家协会理事
+                    {{ item.desc }}
                   </p>
                 </div>
               </a>
@@ -420,68 +469,17 @@ const videoData = ref({
             <a href="/art-list.html" class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="art-grid">
-            <!-- 第一行 - 特色作品 -->
-            <!-- 修改2：为书画作品添加点击事件 -->
-            <div class="art-item featured" data-art-id="1">
+            <div v-for="(item, index) in artData" :key="index" :class="{ 'art-item': true, featured: item.detailed }"
+              data-art-id="item.id">
               <div class="art-image">
-                <img src="/public/images/art/art01.jpg" style="max-height: 430px; width: auto" alt="运河春晓" />
+                <img :src="item.img" style="max-height: 430px; width: auto" :alt="item.title" />
               </div>
-              <div class="art-info">
-                <h3 class="art-title">《吉祥溪山》</h3>
-                <p class="art-author">韩英凌</p>
+              <div v-if="item.detailed" class="art-info">
+                <h3 class="art-title">{{ item.title }}</h3>
+                <p class="art-author">{{ item.author }}</p>
                 <p class="art-desc">
-                  以水墨与色彩结合，描绘层叠山峦、瀑布溪流及山间亭台，笔墨苍劲，意境深远。
+                  {{ item.desc }}
                 </p>
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="3">
-              <div class="art-image">
-                <img src="/public/images/art/art03.jpg" style="max-height: 430px; width: auto" alt="书画作品3" />
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="4">
-              <div class="art-image">
-                <img src="/public/images/art/art04.jpg" style="max-height: 430px; width: auto" alt="书画作品4" />
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="5">
-              <div class="art-image">
-                <img src="/public/images/art/art05.jpg" style="max-height: 430px; width: auto" alt="书画作品5" />
-              </div>
-            </div>
-
-            <!-- 第二行 - 新增特色作品 -->
-            <div class="art-item featured" data-art-id="2">
-              <div class="art-image" style="background-color: #e0c8a4">
-                <img src="/public/images/art/fangjianguang001.jpeg" style="max-height: 430px; width: auto" alt="书法作品" />
-              </div>
-              <div class="art-info">
-                <h3 class="art-title">书法作品</h3>
-                <p class="art-author">方建光</p>
-                <p class="art-desc">
-                  笔法流畅自然，字形大小错落，墨色浓淡变化丰富，整体布局疏密有致，展现了书写者对传统书法的继承与个人风格的融合。传承了“二王”书法的艺术精髓。
-                </p>
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="6">
-              <div class="art-image">
-                <img src="/public/images/art/art12.jpg" style="max-height: 430px; width: auto" alt="书画作品6" />
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="7">
-              <div class="art-image">
-                <img src="/public/images/art/art13.jpg" style="max-height: 430px; width: auto" alt="书画作品7" />
-              </div>
-            </div>
-
-            <div class="art-item" data-art-id="8">
-              <div class="art-image">
-                <img src="/public/images/art/art16.jpg" style="max-height: 430px; width: auto" alt="书画作品8" />
               </div>
             </div>
           </div>
@@ -495,24 +493,8 @@ const videoData = ref({
             <h2 class="section-title">友情链接</h2>
           </div>
           <div class="links-list">
-            <a href="https://www.sdzx.gov.cn/" target="_blank" class="link-item">
-              山东省政协
-            </a>
-
-            <a href="https://www.lcszx.gov.cn" target="_blank" class="link-item">
-              聊城市政协
-            </a>
-
-            <a href="https://www.sdzx.gov.cn/sdszxwsg/" target="_blank" class="link-item">
-              山东政协文史馆
-            </a>
-
-            <a href="http://www.zbszx.gov.cn/html/list_724_1.html" target="_blank" class="link-item">
-              淄博政协文史馆
-            </a>
-
-            <a href="http://zx.weihai.gov.cn/col/col162656/index.html" target="_blank" class="link-item">
-              威海政协文史馆
+            <a v-for="(item, index) in friendData" :key="index" :href="item.url" target="_blank" class="link-item">
+              {{ item.name }}
             </a>
           </div>
         </div>
@@ -525,4 +507,8 @@ const videoData = ref({
 @import "/public/css/common.css";
 @import "/public/css/culture.css";
 @import "/public/css/home.css";
+
+.homePage {
+  background-color: #f5f5f5;
+}
 </style>
