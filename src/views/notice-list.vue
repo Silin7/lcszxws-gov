@@ -107,6 +107,6 @@ const recommendList = ref([
 
 // 通知公告页面样式
 .notice-list-page {
-  // 可根据需要添加页面特定样式
+  background-color: #f5f5f5;
 }
 </style>

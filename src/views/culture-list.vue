@@ -205,6 +205,6 @@ const currentCategoryInfo = () => {
 
 // 地方撷英页面样式
 .culture-list-page {
-  // 可根据需要添加页面特定样式
+  background-color: #f5f5f5;
 }
 </style>

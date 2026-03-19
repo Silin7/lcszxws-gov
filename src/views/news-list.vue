@@ -141,6 +141,7 @@ const recommendList = ref([
 @import "/public/css/home.css";
 @import '/public/css/news.css';
 
-// .news-list-page {
-//   border: 1px solid red;
-// }</style>
+.news-list-page {
+  background-color: #f5f5f5;
+}
+</style>
