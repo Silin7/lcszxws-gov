@@ -1,0 +1,730 @@
+/* 地方撷英页面专用样式 */
+
+/* 页面标题区域 */
+.culture-header {
+    background: linear-gradient(135deg, rgba(42, 110, 139, 0.9) 0%, rgba(74, 156, 204, 0.9) 100%);
+    color: white;
+    padding: 50px 0 40px;
+    margin-bottom: 40px;
+}
+
+.culture-header .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.culture-header .breadcrumb a:hover {
+    color: white;
+}
+
+.culture-header .breadcrumb span {
+    color: white;
+}
+
+.culture-header .page-title {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.culture-header .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+}
+
+/* 文章分类标签 */
+.article-tag {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.article-tag[data-tag="两河文化"] {
+    background-color: #e6f2ff;
+    color: #0066cc;
+}
+
+.article-tag[data-tag="非遗传承"] {
+    background-color: #fff0f5;
+    color: #cc3366;
+}
+
+.article-tag[data-tag="名胜古迹"] {
+    background-color: #f0fff0;
+    color: #009900;
+}
+
+/* 右侧分栏目导航 */
+.category-nav-section {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.category-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    width: 100%;
+}
+
+.category-btn:hover {
+    background-color: #2a6e8b;
+    color: white;
+    transform: translateX(5px);
+}
+
+.category-btn.active {
+    background-color: #2a6e8b;
+    color: white;
+}
+
+.category-btn.active .category-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.category-icon {
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.category-btn.active .category-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.category-content {
+    flex: 1;
+}
+
+.category-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.category-desc {
+    font-size: 14px;
+    color: #666;
+}
+
+.category-btn:hover .category-desc,
+.category-btn.active .category-desc {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 特色推荐 */
+.featured-section {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.featured-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.featured-item {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+
+.featured-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.featured-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-text {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.featured-info {
+    flex: 1;
+}
+
+.featured-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.featured-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.featured-link {
+    font-size: 14px;
+    color: #2a6e8b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.featured-link:hover {
+    text-decoration: underline;
+}
+
+/* 文化地图 */
+.map-section {
+    background-color: #fff;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.map-container {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-preview {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.map-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.map-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.map-desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.map-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #2a6e8b;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.map-link:hover {
+    background-color: #1a5f7a;
+}
+
+/* 近期活动 */
+.activity-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.activity-list {
+    list-style: none;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-date {
+    font-size: 14px;
+    color: #2a6e8b;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.activity-title {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.activity-title:hover {
+    color: #2a6e8b;
+}
+
+/* 详情页特色样式 */
+.article-category-label {
+    background-color: #e6f2ff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #0066cc;
+}
+
+.article-category-label a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.article-category-label a:hover {
+    text-decoration: underline;
+}
+
+.culture-image-large {
+    height: 450px;
+    border-radius: 8px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.culture-value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.value-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.value-icon {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.value-content h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.value-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.culture-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+}
+
+.culture-table th {
+    background-color: #2a6e8b;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.culture-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.culture-table tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+.future-plan {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+.plan-number {
+    font-size: 24px;
+    color: #2a6e8b;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.plan-content h5 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.plan-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.article-resources {
+    background-color: #f0f8ff;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.article-resources h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2a6e8b;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.resource-link:hover {
+    background-color: #2a6e8b;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.resource-icon {
+    font-size: 20px;
+}
+
+.resource-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 右侧侧边栏样式 */
+.culture-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.culture-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.culture-nav-item:hover {
+    background-color: #2a6e8b;
+    color: white;
+    transform: translateX(5px);
+}
+
+.culture-nav-item.active {
+    background-color: #2a6e8b;
+    color: white;
+}
+
+.nav-icon {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.culture-nav-item.active .nav-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-content {
+    flex: 1;
+}
+
+.nav-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.nav-count {
+    font-size: 12px;
+    color: #666;
+}
+
+.culture-nav-item:hover .nav-count,
+.culture-nav-item.active .nav-count {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sidebar-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    background-color: #e6f2ff;
+    color: #0066cc;
+    border-radius: 3px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.culture-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image {
+    height: 100px;
+    position: relative;
+}
+
+.feature-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.feature-info {
+    padding: 15px;
+}
+
+.feature-title {
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.feature-desc {
+    font-size: 13px;
+    color: #666;
+}
+
+.map-link-card {
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.map-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-preview-small {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-text-small {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.map-info-small {
+    padding: 15px;
+    text-align: center;
+}
+
+.map-title-small {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.map-desc-small {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .culture-value-grid,
+    .future-plan,
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .culture-header .page-title {
+        font-size: 28px;
+    }
+    
+    .category-btn {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .category-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .featured-item {
+        flex-direction: column;
+    }
+    
+    .featured-image {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .culture-table {
+        font-size: 13px;
+    }
+    
+    .culture-table th,
+    .culture-table td {
+        padding: 8px 10px;
+    }
+}
