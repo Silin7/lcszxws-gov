@@ -8,3 +8,7 @@
     </div>
   </footer>
 </template>
+
+<style lang="scss" scoped>
+@import '/public/css/common.css';
+</style>

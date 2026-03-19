@@ -1,8 +1,16 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import pageJump from "@/hooks/pageJump";
+import useHeaderStore from "@/store/modules/header";
 
-const navActive: any = ref("home");
+// 导航栏 active 状态
+const headerStore = useHeaderStore();
+
+const selectedTab: any = computed(() => {
+  return headerStore.selectedTab;
+});
+
+// 导航栏列表
 const navList: any = ref([
   { id: "1", link: false, title: "首页", path: "/", name: "home" },
   {
@@ -67,7 +75,6 @@ const navList: any = ref([
 
 // 导航栏点击事件
 function navClick(item: any) {
-  navActive.value = item.name;
   if (!item.link) {
     pageJump(item.name);
   } else {
@@ -89,8 +96,8 @@ function navClick(item: any) {
             <!-- 主导航 -->
             <nav class="main-nav">
               <ul class="nav-list">
-                <li v-for="item in navList" :key="item.id" :class="['nav-item', { active: item.name === navActive }]"
-                  @click.stop="navClick(item)" style="cursor: pointer">
+                <li v-for="item in navList" :key="item.id" :class="['nav-item', { active: item.name === selectedTab }]"
+                  @click.stop="navClick(item)">
                   <a>{{ item.title }}</a>
                 </li>
               </ul>
@@ -102,4 +109,10 @@ function navClick(item: any) {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "/public/css/common.css";
+
+.nav-list li {
+  cursor: pointer;
+}
+</style>
