@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { useCounterStore } from './stores/counter'
+import { ref } from "vue";
+import { ElMessage } from "element-plus";
+import { useCounterStore } from "./stores/counter";
 
 // 使用 counter store
-const counterStore = useCounterStore()
+const counterStore = useCounterStore();
 
 // Element Plus 测试数据
-const inputValue = ref('')
-const selectValue = ref('')
+const inputValue = ref("");
+const selectValue = ref("");
 const options = [
-  { value: 'Option1', label: '选项一' },
-  { value: 'Option2', label: '选项二' },
-  { value: 'Option3', label: '选项三' }
-]
-const switchValue = ref(false)
+  { value: "Option1", label: "选项一" },
+  { value: "Option2", label: "选项二" },
+  { value: "Option3", label: "选项三" },
+];
+const switchValue = ref(false);
 
 const showMessage = () => {
-  ElMessage.success('这是一个成功消息')
-}
+  ElMessage.success("这是一个成功消息");
+};
+
+const value2 = ref();
 </script>
 
 <template>
@@ -60,7 +62,7 @@ const showMessage = () => {
         <div class="component-item">
           <h3>Switch 开关</h3>
           <el-switch v-model="switchValue" active-text="开" inactive-text="关" />
-          <p>开关状态: {{ switchValue ? '开' : '关' }}</p>
+          <p>开关状态: {{ switchValue ? "开" : "关" }}</p>
         </div>
 
         <!-- Message 消息提示 -->
@@ -93,10 +95,13 @@ const showMessage = () => {
       <el-button type="primary" @click="counterStore.increment">增加计数</el-button>
     </div>
 
-    <p style="margin-top: 2rem;">
-      Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-      documentation
+    <p style="margin-top: 2rem">
+      Visit
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a>
+      to read the documentation
     </p>
+
+    <el-time-picker v-model="value2" arrow-control placeholder="Arbitrary time" />
   </div>
 </template>
 
