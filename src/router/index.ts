@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/news-detail.vue'),
     meta: {
       title: '文史动态-聊城市政协文史馆',
-      stcode: 'news-detail',
+      stcode: 'news-list',
       website: true,
       hashead: true,
       hasfoot: true,
@@ -55,7 +55,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/notice-detail.vue'),
     meta: {
       title: '通知公告-聊城市政协文史馆',
-      stcode: 'notice-detail',
+      stcode: 'notice-list',
       website: true,
       hashead: true,
       hasfoot: true,
@@ -79,7 +79,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/culture-detail.vue'),
     meta: {
       title: '地方撷英-聊城市政协文史馆',
-      stcode: 'culture-detail',
+      stcode: 'culture-list',
       website: true,
       hashead: true,
       hasfoot: true,
@@ -103,7 +103,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/people-detail.vue'),
     meta: {
       title: '人物春秋-聊城市政协文史馆',
-      stcode: 'people-detail',
+      stcode: 'people-list',
       website: true,
       hashead: true,
       hasfoot: true,
@@ -127,7 +127,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/literature-detail.vue'),
     meta: {
       title: '文史典籍-聊城市政协文史馆',
-      stcode: 'literature-detail',
+      stcode: 'literature-list',
       website: true,
       hashead: true,
       hasfoot: true,
