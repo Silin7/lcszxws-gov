@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孙大石 - 人物春秋 - 聊城政协文史馆</title>
+    <link rel="stylesheet" href="/public/css/common.css">
+    <link rel="stylesheet" href="/public/css/people.css">
+    <link rel="stylesheet" href="/public/css/news.css">
+    <style>
+        /* 微调容错，确保图片占位和视觉一致性 */
+        .people-avatar-large .avatar-image-large {
+            width: 180px;
+            height: 240px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+        }
+        .people-avatar-large img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .work-cover {
+            background-color: #fafafa;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .work-cover img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+        .related-avatar img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        /* 模态框样式 (保持与原有逻辑一致，仅补充确保显示) */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .image-modal.active {
+            display: flex;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            border: 3px solid white;
+        }
+        .modal-caption {
+            color: white;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 (完全复用原风格) -->
+    <header class="site-header">
+        <div class="header-main">
+            <div class="container">
+                <div class="header-container">
+                    <div class="logo-area">
+                        <img src="/public/images/logo.png" alt="聊城市政协文史馆">
+                    </div>
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item"><a href="/index.html">首页</a></li>
+                            <li class="nav-item"><a href="/news-list.html">新闻动态</a></li>
+                            <li class="nav-item"><a href="/notice-list.html">通知公告</a></li>
+                            <li class="nav-item"><a href="/history/index.html">政协历程</a></li>
+                            <li class="nav-item"><a href="/culture-list.html">地方撷英</a></li>
+                            <li class="nav-item active"><a href="/people-list.html">人物春秋</a></li>
+                            <li class="nav-item"><a href="/literature-list.html">文史典籍</a></li>
+                            <li class="nav-item"><a href="/art-list.html">书画作品</a></li>
+                            <li class="nav-item"><a href="https://obs.3dyunzhan.com/sceneFront/index.html?G_TEMP_ID=a320af7b820742c19e8f5cde938424a0" target=_blank>VR展厅</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content people-detail-page">
+        <div class="container">
+            <div class="content-grid">
+                <!-- 左侧内容 - 人物详情 -->
+                <div class="content-left">
+                    <article class="people-detail">
+                        <!-- 人物基本信息：孙大石 -->
+                        <div class="people-header">
+                            <div class="people-avatar-large">
+                                <div class="avatar-image-large">
+                                    <img src="/public/images/sundashi_avatar.jpg" alt="孙大石" class="enlargeable-image" 
+                                         data-caption="孙大石">
+                                </div>
+                            </div>
+                            <div class="people-basic-info">
+                                <div class="people-title-row">
+                                    <h1 class="people-name">孙大石</h1>
+                                    <span class="people-category-tag">文化名人</span>
+                                </div>
+                                <p class="people-title">中国美术家协会理事，第六、七、八届全国政协委员</p>
+                                <div class="people-keywords">
+                                    <span class="keyword">大写意山水</span>
+                                    <span class="keyword">布上水墨</span>
+                                    <span class="keyword">爱国画家</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 人物生平 (基于搜索结果，已去除[citation]标记) -->
+                        <div class="people-section">
+                            <h3 class="section-title">人物生平</h3>
+                            <div class="section-content">
+                                <p>孙大石，又名孙瑛，山东高唐人。中国美术家协会理事、中央文史研究馆馆员、中国画研究院（现中国国家画院）专业画家。第六、七、八届全国政协委员，文化部侨联主席。</p>
+                                
+                                <p>自幼喜绘画，村塾三年、小学四年肄业，16岁学徒。1937年抗战爆发后投笔从戎，然画兴不减，速写簿从不离手，在战壕与防空洞中仍坚持创作，奠定了扎实的写实基础。1945年在武汉结识丰子恺，受其鼓励并获赠作品。</p>
+                                
+                                <p>1949年赴台湾，辞去军职专事美术教育，参与筹建“中国现代画学会”“四海学会”“中国现代水墨画学会”，获台湾最高绘画团体“中国画学会”金爵奖。1958年起在高雄、台北、东京及美国举办十余次个展。1974年应美国21世纪画廊及纽约圣若望大学之邀赴美讲学并办展，后定居旧金山。</p>
+                                
+                                <p>1982年毅然偕夫人谢从玉回国定居，受到国家领导人亲切接见，实现了落叶归根的夙愿。归乡后心系故土，捐建孙大石希望小学、幼儿园及老年活动中心，设立永久性大石奖学金。2000年无偿捐赠个人书画及藏品，建立孙大石美术馆，现为集展览、收藏、交流于一体的书画基地。</p>
+                            </div>
+                        </div>
+
+                        <div class="people-section">
+                            <h3 class="section-title">艺术成就</h3>
+                            <div class="section-content">
+                                <div class="contributions-grid">
+                                    <div class="contribution-item">
+                                        <div class="contribution-content">
+                                            <h4>大写意山水·布上水墨</h4>
+                                            <p>融合中西，独创布上水墨画，气韵磅礴，枯笔渴墨皆成佳品。作品既有传统功力又富时代气息，是二十世纪后半叶推进中国画改革的代表人物之一。</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contribution-item">
+                                        <div class="contribution-content">
+                                            <h4>画会先驱与理论建树</h4>
+                                            <p>在台参与组建“四海画会”“中国现代水墨画学会”，推动中国画现代转型。撰有《中国绘画的现代观》《论水墨画之创新》等理论文章，影响深远。</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contribution-item">
+                                        <div class="contribution-content">
+                                            <h4>国际声誉·金爵奖</h4>
+                                            <p>20世纪60-70年代在马来西亚、澳大利亚、德国、美国、巴西等国举办个展，在日本四次个展引发轰动。荣获台湾中国画学会“金爵奖”，与张大千、黄君璧齐名。</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contribution-item">
+                                        <div class="contribution-content">
+                                            <h4>爱国爱乡·无私奉献</h4>
+                                            <p>旅美期间时刻思念祖国，画作题跋“我是中国人，爱祖国是我做人的天职”。回国后将全部家产、数百幅精品及收藏无偿捐献给高唐县政府，捐资兴建希望小学、康复中心，德艺双馨。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <!-- 代表作品 (替换为孙大石代表作) -->
+                        <div class="people-section">
+                            <h3 class="section-title">代表作品</h3>
+                            <div class="section-content">
+                                <div class="works-list">
+                                    <div class="work-item">
+                                        <div class="work-cover" style="text-align:center;">
+                                            <img src="/public/images/sundashi_gujie.jpg" 
+                                                 class="enlargeable-image">
+                                        </div>
+                                        <div class="work-info">
+                                            <h4>《广元古街》</h4>                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="work-item">
+                                        <div class="work-cover" style="text-align:center;">
+                                            <img src="/public/images/sundashi_shanjutu.jpg" 
+                                                 class="enlargeable-image">
+                                        </div>
+                                        <div class="work-info">
+                                            <h4>《山居图》</h4>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="work-item">
+                                        <div class="work-cover" style="text-align:center;">
+                                            <img src="/public/images/sundashi_yijiangnan.jpg" 
+                                                 class="enlargeable-image">
+                                        </div>
+                                        <div class="work-info">
+                                            <h4>《忆江南》</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 社会评价 (引用真实评价，无标记) -->
+                        <div class="people-section">
+                            <h3 class="section-title">社会评价</h3>
+                            <div class="section-content">
+                                <div class="evaluation-quotes">
+                                    <blockquote class="quote-item">
+                                        <p>"孙大石先生是中国水墨画的鬼才……放出异彩的天才。他的作品气韵生动，气势磅礴，不拘一格，挥洒自如。"</p>
+                                        <cite>——日本美术评论界</cite>
+                                    </blockquote>
+                                    
+                                    <blockquote class="quote-item">
+                                        <p>"（孙大石）与张大千、黄君璧诸家已脱却躯壳，步向新蹊。为中国当代山水画家库增添了厚重一笔。"</p>
+                                        <cite>——《当代中国画坛》</cite>
+                                    </blockquote>
+                                    
+                                    <blockquote class="quote-item">
+                                        <p>"孙大石的人品与画品完美统一：感天动地的爱国情怀，自强不息的苦学毅力，与人为善的博爱精神，匠心独运的大家风范。"</p>
+                                        <cite>——张志忠 赵海洋《孙大石的人品与画品》</cite>
+                                    </blockquote>
+
+                                    <blockquote class="quote-item">
+                                        <p>"我是中国人，我爱我的祖国，更爱祖国的绘画艺术……海外赤子何时能回到祖国的怀抱？"</p>
+                                        <cite>——孙大石旅美期间画作题记</cite>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 文章导航 (与李苦禅页风格一致，链接调整) -->
+                        <footer class="article-footer">
+                            <div class="article-nav">
+                                <a href="/people/likuchan.html" class="prev-article">上一篇：李苦禅 - 国画大师</a>
+                                <a href="/people/fanzhuxian.html" class="next-article">下一篇：范筑先 - 抗日英雄</a>
+                            </div>
+                        </footer>
+                    </article>
+                </div>
+
+                <!-- 右侧侧边栏：相关人物 (结合聊城及艺术界相关) -->
+                <div class="content-right">
+                    <!-- 相关人物 -->
+                    <section class="sidebar-section">
+                        <div class="section-header">
+                            <h3 class="section-title">相关人物</h3>
+                        </div>
+                        <div class="related-people">
+                            <div class="related-person">
+                                <div class="related-avatar">
+                                    <img src="/public/images/likuchan_avatar.jpg" alt="李苦禅" onerror="this.src='/public/images/placeholder-avatar.jpg';">
+                                </div>
+                                <div class="related-info">
+                                    <h4 class="related-name">李苦禅</h4>
+                                    <p class="related-title">国画大师、高唐同乡</p>
+                                    <a href="/people/people-likuchan.html" class="related-link">查看详情</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域 -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">版权所有 &copy; 2026 聊城市政协文史馆</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 模态框 (图片放大) 结构与原页面一致，并增加动态生成防止缺失 -->
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <script>
+        (function() {
+            // 确保模态框存在；若页面中没有id，则动态添加（但上面已存在，此为保证逻辑）
+            let modal = document.getElementById('imageModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'imageModal';
+                modal.className = 'image-modal';
+                modal.innerHTML = '<span class="close-modal" id="closeModal">&times;</span><img class="modal-content" id="modalImage" src="" alt=""><div class="modal-caption" id="modalCaption"></div>';
+                document.body.appendChild(modal);
+            }
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeModal = document.getElementById('closeModal');
+
+            // 给所有 .enlargeable-image 绑定点击
+            document.querySelectorAll('.enlargeable-image').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    const src = this.getAttribute('src') || '';
+                    const caption = this.getAttribute('data-caption') || this.getAttribute('alt') || '作品预览';
+                    if (modalImage) modalImage.setAttribute('src', src);
+                    if (modalCaption) modalCaption.textContent = caption;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // 关闭模态框
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // 图片加载错误占位
+            modalImage?.addEventListener('error', function() {
+                this.src = '/public/images/placeholder-work.jpg';
+                modalCaption.textContent = '图片暂无法显示';
+            });
+        })();
+    </script>
+</body>
+</html>

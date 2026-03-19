@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书画作品 - 聊城政协文史馆</title>
+    <meta name="description" content="聊城市政协文史馆数字化平台，展示政协历程、文史典籍、书画作品等珍贵资料。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://lcwsg.lcszx.gov.cn:88/">
+    <meta property="og:title" content="聊城市政协文史馆-书画作品">
+    <meta property="og:description" content="聊城市政协文史馆数字化平台，展示政协历程、文史典籍、书画作品等珍贵资料。">
+    <meta property="og:image" content="http://lcwsg.lcszx.gov.cn:88/public/images/fenxiang.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="聊城市政协文史馆">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script src="/public/js/wechat-auto-share.js"></script>    
+    <link rel="stylesheet" href="/public/css/common.css">
+    <link rel="stylesheet" href="/public/css/art.css">
+    <style>
+        /* 添加自定义样式解决图片显示问题 */
+        .art-image {
+            height: 350px; /* 设置固定高度 */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+        }
+        
+        .art-image-real {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 保持图片比例 */
+            object-position: center;
+        }
+        
+        .list-image {
+            height: 150px;
+            width: 150px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            flex-shrink: 0;
+        }
+        
+        .list-image-real {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+        
+        /* 模态框样式优化 */
+        .modal-content {
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        /* 模态框图片容器 - 根据弹框高度自适应 */
+        .modal-image-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .modal-image-real {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+        
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .art-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .art-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .art-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .art-name {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* 分类导航样式 */
+        .art-category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category-btn {
+            padding: 8px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .category-btn.active {
+            background: #2a6e8b;
+            color: white;
+            border-color: #2a6e8b;
+        }
+        
+        /* 模态框导航按钮样式 */
+        .modal-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px 20px;
+        }
+        
+        .modal-prev, .modal-next {
+            padding: 10px 20px;
+            background-color: #2a6e8b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-prev:hover, .modal-next:hover {
+            background-color: #1d4f63;
+        }
+        
+        .modal-prev:disabled, .modal-next:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        /* 放大按钮样式 */
+        .zoom-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(42, 110, 139, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+        
+        .zoom-btn:hover {
+            background-color: #2a6e8b;
+        }
+        
+        .art-image-container {
+            position: relative;
+        }
+        
+        /* 模态框遮罩层 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="site-header">
+        <div class="header-main">
+            <div class="container">
+                <div class="header-container">
+                    <div class="logo-area">
+                        <img src="/public/images/logo.png" alt="聊城政协文史馆">
+                    </div>
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item"><a href="/index.html">首页</a></li>
+                            <li class="nav-item"><a href="/news-list.html">文史动态</a></li>
+                            <li class="nav-item"><a href="/notice-list.html">通知公告</a></li>
+                            <li class="nav-item"><a href="/history/index.html">政协历程</a></li>
+                            <li class="nav-item"><a href="/culture-list.html">地方撷英</a></li>
+                            <li class="nav-item"><a href="/people-list.html">人物春秋</a></li>
+                            <li class="nav-item"><a href="/literature-list.html">文史典籍</a></li>
+                            <li class="nav-item active"><a href="/art-list.html">书画作品</a></li>
+                            <li class="nav-item"><a href="https://obs.3dyunzhan.com/sceneFront/index.html?G_TEMP_ID=a320af7b820742c19e8f5cde938424a0" target=_blank>VR展厅</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content art-main">
+        <div class="container">
+            <!-- 作品分类导航 -->
+            <div class="art-category-nav">
+                <button class="category-btn active" data-category="all">全部作品</button>
+                <button class="category-btn" data-category="painting">国画作品</button>
+                <button class="category-btn" data-category="calligraphy">书法作品</button>
+                <button class="category-btn" data-category="landscape">山水题材</button>
+                <button class="category-btn" data-category="flower">花鸟题材</button>
+            </div>
+
+            <!-- 作品展示区（网格视图） -->
+            <div class="art-grid-view active">
+                <div class="art-grid">
+                    
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art12.jpg" alt="运河春晓" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="1">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art13.jpg" alt="" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="2">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art14.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="3">+</button>
+                            </div>
+                        </div>
+                     </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art15.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="4">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第2行 -->
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art16.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="5">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                    <!-- 第1行 -->
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art01.jpg" alt="运河春晓" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="1">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/fangjianguang001.jpeg" alt="" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="2">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art03.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="3">+</button>
+                            </div>
+                        </div>
+                     </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art04.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="4">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第2行 -->
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art05.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="5">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art06.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="6">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art07.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                               <button class="zoom-btn" data-art="7">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art08.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="8">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art09.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="8">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="art-item" data-category="painting landscape">
+                        <div class="art-image-container">
+                            <div class="art-image">
+                                <img src="/public/images/art/art10.jpg" alt="书画作品" class="art-image-real">
+                            </div>
+                            <div class="art-overlay">
+                                <button class="zoom-btn" data-art="8">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- 查看更多 -->
+                <div class="art-load-more">
+                    <button class="load-more-btn">加载更多作品</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 图片放大模态框 - 只显示作品图片 -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-image-container">
+                <div class="modal-image" id="modalImage">
+                    <!-- 图片将通过JS动态加载 -->
+                </div>
+            </div>
+            <div class="modal-nav">
+                <button class="modal-prev" id="prevBtn">上一个</button>
+                <button class="modal-next" id="nextBtn">下一个</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部区域 -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">版权所有 &copy; 2026 聊城市政协文史馆</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 作品数据 - 使用首页的15件书画作品
+        const artworkData = [
+            
+            {
+                id: 1,
+                image: "/public/images/art/art12.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 2,
+                image: "/public/images/art/art13.jpeg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 3,
+                image: "/public/images/art/art14.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 4,
+                image: "/public/images/art/art15.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 5,
+                image: "/public/images/art/art16.jpg",
+                category: ["painting", "landscape"]
+            },    
+            
+            {
+                id: 6,
+                image: "/public/images/art/art01.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 7,
+                image: "/public/images/art/fangjianguang001.jpeg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 8,
+                image: "/public/images/art/art03.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 9,
+                image: "/public/images/art/art04.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 10,
+                image: "/public/images/art/art05.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 11,
+                image: "/public/images/art/art06.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 12,
+                image: "/public/images/art/art07.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 13,
+                image: "/public/images/art/art08.jpg",
+                category: ["painting", "landscape"]
+            },
+            {
+                id: 14,
+                image: "/public/images/art/art09.jpg",
+                category: ["painting", "landscape"]
+            },
+
+            {
+                id: 15,
+                image: "/public/images/art/art10.jpg",
+                category: ["painting", "landscape"]
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const artItems = document.querySelectorAll('.art-item');
+            const zoomBtns = document.querySelectorAll('.zoom-btn');
+            const modalOverlay = document.getElementById('imageModal');
+            const closeModal = document.getElementById('closeModal');
+            const modalImageContainer = document.getElementById('modalImage');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+
+            let currentCategory = 'all';
+            let currentArtwork = 0;
+
+            // 分类筛选功能
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    currentCategory = category;
+                    
+                    // 更新按钮状态
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 筛选显示作品
+                    filterArtworks();
+                });
+            });
+
+            // 图片放大功能
+            zoomBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const artId = parseInt(this.getAttribute('data-art'));
+                    showArtworkModal(artId);
+                });
+            });
+
+            // 模态框关闭
+            closeModal.addEventListener('click', function() {
+                modalOverlay.classList.remove('active');
+            });
+
+            // 点击模态框背景关闭
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                }
+            });
+
+            // 键盘事件
+            document.addEventListener('keydown', function(e) {
+                if (modalOverlay.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        modalOverlay.classList.remove('active');
+                    } else if (e.key === 'ArrowLeft') {
+                        showPrevArtwork();
+                    } else if (e.key === 'ArrowRight') {
+                        showNextArtwork();
+                    }
+                }
+            });
+
+            // 上一个作品
+            prevBtn.addEventListener('click', showPrevArtwork);
+
+            // 下一个作品
+            nextBtn.addEventListener('click', showNextArtwork);
+
+            // 筛选作品
+            function filterArtworks() {
+                artItems.forEach(item => {
+                    const categories = item.getAttribute('data-category').split(' ');
+                    if (currentCategory === 'all' || categories.includes(currentCategory)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            // 显示作品模态框
+            function showArtworkModal(artId) {
+                const artwork = artworkData.find(art => art.id === artId);
+                if (!artwork) return;
+                
+                currentArtwork = artId;
+                
+                // 创建图片 - 只显示图片，不显示标题和描述
+                modalImageContainer.innerHTML = `
+                    <img src="${artwork.image}" alt="书画作品" class="modal-image-real">
+                `;
+                
+                // 显示模态框
+                modalOverlay.classList.add('active');
+                
+                // 更新导航按钮状态
+                updateModalNav();
+            }
+
+            // 显示上一个作品
+            function showPrevArtwork() {
+                const filteredArtworks = getFilteredArtworks();
+                const currentIndex = filteredArtworks.findIndex(art => art.id === currentArtwork);
+                if (currentIndex > 0) {
+                    showArtworkModal(filteredArtworks[currentIndex - 1].id);
+                }
+            }
+
+            // 显示下一个作品
+            function showNextArtwork() {
+                const filteredArtworks = getFilteredArtworks();
+                const currentIndex = filteredArtworks.findIndex(art => art.id === currentArtwork);
+                if (currentIndex < filteredArtworks.length - 1) {
+                    showArtworkModal(filteredArtworks[currentIndex + 1].id);
+                }
+            }
+
+            // 获取筛选后的作品
+            function getFilteredArtworks() {
+                return artworkData.filter(art => {
+                    if (currentCategory !== 'all' && !art.category.includes(currentCategory)) {
+                        return false;
+                    }
+                    return true;
+                });
+            }
+
+            // 更新模态框导航
+            function updateModalNav() {
+                const filteredArtworks = getFilteredArtworks();
+                const currentIndex = filteredArtworks.findIndex(art => art.id === currentArtwork);
+                
+                prevBtn.disabled = currentIndex <= 0;
+                nextBtn.disabled = currentIndex >= filteredArtworks.length - 1;
+            }
+
+            // 初始化
+            filterArtworks();
+            
+            // 加载更多按钮事件
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    // 在实际应用中，这里应该从服务器加载更多数据
+                    // 现在先隐藏按钮
+                    loadMoreBtn.style.display = 'none';
+                });
+            }
+            
+            // 修复按钮的data-art属性（修复原来都是1的问题）
+            document.querySelectorAll('.zoom-btn').forEach((btn, index) => {
+                btn.setAttribute('data-art', index + 1);
+            });
+        });
+    </script>
+</body>
+</html>

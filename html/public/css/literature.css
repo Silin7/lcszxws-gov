@@ -1,0 +1,1082 @@
+/* 文史典籍页面专用样式 */
+
+/* 页面标题区域 */
+.literature-header {
+    color: white;
+    padding: 50px 0 40px;
+    margin-bottom: 40px;
+}
+
+.literature-header .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.literature-header .breadcrumb a:hover {
+    color: white;
+}
+
+.literature-header .breadcrumb span {
+    color: white;
+}
+
+.literature-header .page-title {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.literature-header .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+}
+
+/* 典籍分类导航 */
+.literature-category-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.literature-category-nav .category-btn {
+    padding: 10px 24px;
+    background-color: #f8f8f8;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.literature-category-nav .category-btn:hover {
+    background-color: #e8e8e8;
+    transform: translateY(-2px);
+}
+
+.literature-category-nav .category-btn.active {
+    background-color: #c00;
+    color: white;
+    border-color: #c00;
+}
+
+/* 典籍搜索 */
+.literature-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.literature-search .search-container {
+    display: flex;
+    flex: 1;
+    max-width: 500px;
+}
+
+.literature-search .search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.literature-search .search-input:focus {
+    border-color: #c00;
+}
+
+.literature-search .search-btn {
+    padding: 12px 30px;
+    background-color: #c00;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.literature-search .search-btn:hover {
+    background-color: #a00;
+}
+
+.literature-search .search-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.literature-search .option-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.literature-search .sort-select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: white;
+    cursor: pointer;
+}
+
+.literature-search .sort-select:focus {
+    border-color: #c00;
+    outline: none;
+}
+
+/* 典籍展示区 */
+.literature-showcase {
+    margin-bottom: 50px;
+}
+
+.literature-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.literature-item {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.literature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.book-cover {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.cover-image {
+    max-width:400px;
+    height:auto;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cover-title {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.book-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #c00;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.book-info {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.book-name {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    min-height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-author, .book-publish {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.book-brief {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 63px;
+    margin-top: 10px;
+}
+
+.book-link {
+    display: inline-block;
+    padding: 8px 25px;
+    background-color: transparent;
+    color: #c00;
+    border: 2px solid #c00;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.book-link:hover {
+    background-color: #c00;
+    color: white;
+}
+
+/* 典籍统计数据 */
+.literature-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.literature-stats .stat-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    min-width: 100px;
+    transition: transform 0.3s;
+}
+
+.literature-stats .stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.literature-stats .stat-number {
+    font-size: 28px;
+    color: #c00;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.literature-stats .stat-label {
+    font-size: 13px;
+    color: #666;
+}
+
+/* 分页导航 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 50px;
+}
+
+/* 详情页样式 */
+.literature-detail-page .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.literature-detail {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 典籍头部信息 */
+.literature-header {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.book-cover-large {
+    flex-shrink: 0;
+}
+
+.cover-image-large {
+    max-width: 200px;
+    height:100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cover-title-large {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.3;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.literature-basic-info {
+    flex: 1;
+}
+
+.literature-title-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.literature-name {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.literature-category-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    background-color: #c00;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.literature-author {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.literature-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.meta-item {
+    font-size: 15px;
+    color: #666;
+}
+
+.literature-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.literature-keywords .keyword {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #f8f8f8;
+    color: #666;
+    font-size: 14px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+}
+
+/* 典籍部分样式 */
+.literature-section {
+    margin-bottom: 40px;
+}
+
+.literature-section .section-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c00;
+}
+
+.section-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.8;
+}
+
+/* 目录网格 */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.catalog-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.catalog-volume {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: #c00;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.catalog-content {
+    flex: 1;
+}
+
+.catalog-content h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.catalog-chapters {
+    list-style: none;
+    padding-left: 0;
+}
+
+.catalog-chapters li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.catalog-chapters li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #c00;
+}
+
+/* 价值网格 */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.value-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.value-icon {
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.value-content h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.value-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 作者信息 */
+.author-info {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.author-avatar {
+    flex-shrink: 0;
+}
+
+.author-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.author-text {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.author-details {
+    flex: 1;
+}
+
+.author-name {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.author-title {
+    font-size: 14px;
+    color: #c00;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.author-achievements p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* 评价引用 */
+.review-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quote-item {
+    padding: 25px;
+    background-color: #f0f8ff;
+    border-left: 4px solid #c00;
+    border-radius: 0 8px 8px 0;
+    margin: 0;
+}
+
+.quote-item p {
+    font-size: 16px;
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.quote-item cite {
+    font-size: 14px;
+    color: #666;
+    font-style: normal;
+    display: block;
+    text-align: right;
+}
+
+/* 馆藏表格 */
+.collection-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+.collection-table th {
+    background-color: #c00;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.collection-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.collection-table tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+.status-available {
+    color: #009900;
+    font-weight: bold;
+}
+
+.status-borrowed {
+    color: #cc6600;
+    font-weight: bold;
+}
+
+/* 右侧侧边栏样式 */
+.related-literature {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.related-book {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.related-cover {
+    flex-shrink: 0;
+    width: 70px;
+    height: 90px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.related-cover-text {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.related-info {
+    flex: 1;
+}
+
+.related-name {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.related-author {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.related-link {
+    font-size: 13px;
+    color: #c00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.related-link:hover {
+    text-decoration: underline;
+}
+
+.category-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-stats .category-stat {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #f8f8f8;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 90px;
+}
+
+.category-stats .category-stat:hover {
+    background-color: #c00;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.category-stats .stat-number {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.category-stats .stat-label {
+    display: block;
+    font-size: 12px;
+}
+
+.category-stats .category-stat:hover .stat-number,
+.category-stats .category-stat:hover .stat-label {
+    color: white;
+}
+
+.recommend-list {
+    list-style: none;
+}
+
+.recommend-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.recommend-item:last-child {
+    border-bottom: none;
+}
+
+.recommend-category {
+    font-size: 10px;
+    padding: 2px 6px;
+    background-color: #e6f2ff;
+    color: #0066cc;
+    border-radius: 3px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.recommend-title {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.recommend-title:hover {
+    color: #c00;
+}
+
+.online-reading {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.online-reading p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.reading-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.reading-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.3s;
+    flex: 1;
+    text-align: center;
+}
+
+.reading-link.pdf {
+    border: 1px solid #c00;
+    color: #c00;
+}
+
+.reading-link.online {
+    border: 1px solid #0066cc;
+    color: #0066cc;
+}
+
+.reading-link.download {
+    border: 1px solid #009900;
+    color: #009900;
+}
+
+.reading-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reading-link.pdf:hover {
+    background-color: #c00;
+    color: white;
+}
+
+.reading-link.online:hover {
+    background-color: #0066cc;
+    color: white;
+}
+
+.reading-link.download:hover {
+    background-color: #009900;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .literature-row {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .literature-item {
+        flex: 0 0 calc(50% - 16px);
+    }
+    .cover-image {
+        height: 160px;
+    }
+    
+    .literature-detail {
+        padding: 25px;
+    }
+    
+    .cover-image-large {
+        width:100%;
+        height:auto;
+    }    
+    
+}
+
+@media (max-width: 992px) {
+    .literature-item {
+        flex: 0 0 calc(50% - 16px);
+    }
+    
+    .literature-detail-page .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .literature-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .cover-image {
+        height: 160px;
+    }
+    
+    .literature-detail {
+        padding: 25px;
+    }
+    
+    .cover-image-large {
+        width:100%;
+        height:auto;
+    }    
+    
+    
+}
+
+@media (max-width: 768px) {
+    .literature-header .page-title {
+        font-size: 28px;
+    }
+    
+    .literature-category-nav {
+        gap: 10px;
+    }
+    
+    .literature-category-nav .category-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    
+    .literature-search {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .literature-search .search-container {
+        max-width: 100%;
+    }
+    
+    .literature-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+    
+    .literature-stats {
+        gap: 20px;
+    }
+    
+    .literature-stats .stat-item {
+        min-width: 80px;
+        padding: 15px;
+    }
+    
+    .cover-image {
+        height: 160px;
+    }
+    
+    .literature-detail {
+        padding: 25px;
+    }
+    
+    .cover-image-large {
+        width:100%;
+        height:auto;
+    }
+    
+    .literature-name {
+        font-size: 24px;
+    }
+    
+    .value-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .literature-item {
+        flex: 0 0 100%;
+    }
+    
+    .literature-row {
+        gap: 15px;
+    }
+    
+    .author-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+/* 人物卡片样式 */
+.featured-persons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.person-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #c00;
+}
+
+.person-image {
+    flex-shrink: 0;
+}
+
+.person-image img {
+    width: 100px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.person-info h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.person-info p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 故事网格样式 */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.story-item {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.story-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.story-item h4 {
+    margin: 0 0 10px 0;
+    color: #c00;
+    font-size: 16px;
+}
+
+.story-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 14px;
+}
