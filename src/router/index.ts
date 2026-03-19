@@ -26,12 +26,36 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/news-detail',
+    name: 'news-detail',
+    component: () => import('@/views/news-detail.vue'),
+    meta: {
+      title: '文史动态-聊城市政协文史馆',
+      stcode: 'news-detail',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
     path: '/notice-list',
     name: 'notice-list',
     component: () => import('@/views/notice-list.vue'),
     meta: {
       title: '通知公告-聊城市政协文史馆',
       stcode: 'notice-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/notice-detail',
+    name: 'notice-detail',
+    component: () => import('@/views/notice-detail.vue'),
+    meta: {
+      title: '通知公告-聊城市政协文史馆',
+      stcode: 'notice-detail',
       website: true,
       hashead: true,
       hasfoot: true,
@@ -50,6 +74,18 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/culture-detail',
+    name: 'culture-detail',
+    component: () => import('@/views/culture-detail.vue'),
+    meta: {
+      title: '地方撷英-聊城市政协文史馆',
+      stcode: 'culture-detail',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
     path: '/people-list',
     name: 'people-list',
     component: () => import('@/views/people-list.vue'),
@@ -62,12 +98,36 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
+    path: '/people-detail',
+    name: 'people-detail',
+    component: () => import('@/views/people-detail.vue'),
+    meta: {
+      title: '人物春秋-聊城市政协文史馆',
+      stcode: 'people-detail',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
     path: '/literature-list',
     name: 'literature-list',
     component: () => import('@/views/literature-list.vue'),
     meta: {
       title: '文史典籍-聊城市政协文史馆',
       stcode: 'literature-list',
+      website: true,
+      hashead: true,
+      hasfoot: true,
+    },
+  },
+  {
+    path: '/literature-detail',
+    name: 'literature-detail',
+    component: () => import('@/views/literature-detail.vue'),
+    meta: {
+      title: '文史典籍-聊城市政协文史馆',
+      stcode: 'literature-detail',
       website: true,
       hashead: true,
       hasfoot: true,
