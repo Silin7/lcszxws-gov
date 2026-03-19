@@ -13,3 +13,10 @@ const routeInfo = useRoute();
     <component v-if="routeInfo.meta.hasfoot" :is="footnav" ref="footnavRef" />
   </div>
 </template>
+
+<style lang="scss">
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
