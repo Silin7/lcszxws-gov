@@ -1,191 +1,203 @@
-ss<script setup lang="ts">
-import { ref } from 'vue';
+ss
+<script setup lang="ts">
+import { ref } from "vue";
 
 // 文章数据
 const article = ref({
-  title: '大运河聊城段的历史变迁与文化价值',
-  time: '2023-10-20',
-  summary: '大运河聊城段是中国大运河的重要组成部分，全长97.5公里。自元代开凿以来，在促进南北经济文化交流、推动沿线城市发展方面发挥了重要作用。聊城因运河而兴，形成了独特的运河文化，对聊城的历史发展和社会变迁产生了深远影响。',
+  title: "大运河聊城段的历史变迁与文化价值",
+  time: "2023-10-20",
+  summary:
+    "大运河聊城段是中国大运河的重要组成部分，全长97.5公里。自元代开凿以来，在促进南北经济文化交流、推动沿线城市发展方面发挥了重要作用。聊城因运河而兴，形成了独特的运河文化，对聊城的历史发展和社会变迁产生了深远影响。",
+  image: '/public/images/huanghe01.jpeg',
   content: {
     sections: [
       {
-        title: '一、历史沿革',
+        title: "一、历史沿革",
         subsections: [
           {
-            title: '1. 元代开凿时期',
-            content: '大运河聊城段开凿于元代至元二十六年（1289年），当时称为"会通河"。元世祖忽必烈为加强南北联系，解决漕运问题，下令开凿从东平到临清的运河段，全长250余里，其中经过聊城境内约50里。',
+            title: "1. 元代开凿时期",
+            content:
+              '大运河聊城段开凿于元代至元二十六年（1289年），当时称为"会通河"。元世祖忽必烈为加强南北联系，解决漕运问题，下令开凿从东平到临清的运河段，全长250余里，其中经过聊城境内约50里。',
             list: [
-              '连接了隋唐大运河与京杭大运河',
-              '缩短了南北漕运距离',
-              '促进了聊城地区的经济发展',
-              '为明清时期运河的繁荣奠定了基础'
-            ]
+              "连接了隋唐大运河与京杭大运河",
+              "缩短了南北漕运距离",
+              "促进了聊城地区的经济发展",
+              "为明清时期运河的繁荣奠定了基础",
+            ],
           },
           {
-            title: '2. 明清繁荣时期',
-            content: '明清时期是大运河聊城段的鼎盛时期。明代永乐年间，对会通河进行了大规模疏浚和整治，使其成为京杭大运河的重要航段。聊城因此成为重要的运河码头和商业城市。',
+            title: "2. 明清繁荣时期",
+            content:
+              "明清时期是大运河聊城段的鼎盛时期。明代永乐年间，对会通河进行了大规模疏浚和整治，使其成为京杭大运河的重要航段。聊城因此成为重要的运河码头和商业城市。",
             quote: {
-              text: '漕船北上，必由聊城过闸。商贾云集，百货骈阗，有\'江北一都会\'之称。',
-              source: '——《聊城县志》光绪版'
+              text: "漕船北上，必由聊城过闸。商贾云集，百货骈阗，有'江北一都会'之称。",
+              source: "——《聊城县志》光绪版",
             },
             list: [
-              '<strong>漕运兴盛：</strong>每年有数千艘漕船通过聊城段',
-              '<strong>商业繁荣：</strong>形成了多个商业码头和集散市场',
-              '<strong>文化交融：</strong>南北文化在聊城交汇融合',
-              '<strong>城市建设：</strong>促进了聊城古城的建设和发展'
+              "<strong>漕运兴盛：</strong>每年有数千艘漕船通过聊城段",
+              "<strong>商业繁荣：</strong>形成了多个商业码头和集散市场",
+              "<strong>文化交融：</strong>南北文化在聊城交汇融合",
+              "<strong>城市建设：</strong>促进了聊城古城的建设和发展",
             ],
-            listType: 'ol'
+            listType: "ol",
           },
           {
-            title: '3. 近代变迁',
-            content: '清末至民国时期，随着漕运制度的废除和铁路、公路交通的发展，大运河聊城段的航运功能逐渐衰退。但运河文化的影响依然深远，运河沿岸的城镇和乡村仍然保持着传统的生活方式和文化习俗。'
-          }
-        ]
+            title: "3. 近代变迁",
+            content:
+              "清末至民国时期，随着漕运制度的废除和铁路、公路交通的发展，大运河聊城段的航运功能逐渐衰退。但运河文化的影响依然深远，运河沿岸的城镇和乡村仍然保持着传统的生活方式和文化习俗。",
+          },
+        ],
       },
       {
-        title: '二、文化价值',
+        title: "二、文化价值",
         valueGrid: [
           {
-            icon: '🏛️',
-            title: '建筑文化价值',
-            content: '运河沿岸保存了大量历史建筑，如山陕会馆、大小码头、古闸遗址等，这些建筑体现了明清时期的建筑艺术和工程技术水平。'
+            icon: "🏛️",
+            title: "建筑文化价值",
+            content:
+              "运河沿岸保存了大量历史建筑，如山陕会馆、大小码头、古闸遗址等，这些建筑体现了明清时期的建筑艺术和工程技术水平。",
           },
           {
-            icon: '🎭',
-            title: '民俗文化价值',
-            content: '运河文化深刻影响了聊城的民俗风情，形成了独特的运河民俗，包括饮食习俗、节庆活动、民间信仰等。'
+            icon: "🎭",
+            title: "民俗文化价值",
+            content:
+              "运河文化深刻影响了聊城的民俗风情，形成了独特的运河民俗，包括饮食习俗、节庆活动、民间信仰等。",
           },
           {
-            icon: '📚',
-            title: '文学艺术价值',
-            content: '大运河成为文学艺术创作的重要题材，许多诗词、戏曲、小说都以运河为背景，反映了运河文化的丰富内涵。'
+            icon: "📚",
+            title: "文学艺术价值",
+            content:
+              "大运河成为文学艺术创作的重要题材，许多诗词、戏曲、小说都以运河为背景，反映了运河文化的丰富内涵。",
           },
           {
-            icon: '🤝',
-            title: '商业文化价值',
-            content: '运河促进了商业发展，形成了独特的商业文化和会馆文化，体现了古代商帮的经营理念和商业精神。'
-          }
-        ]
+            icon: "🤝",
+            title: "商业文化价值",
+            content:
+              "运河促进了商业发展，形成了独特的商业文化和会馆文化，体现了古代商帮的经营理念和商业精神。",
+          },
+        ],
       },
       {
-        title: '三、主要遗址',
-        content: '聊城境内保存有丰富的运河遗址，主要包括：',
+        title: "三、主要遗址",
+        content: "聊城境内保存有丰富的运河遗址，主要包括：",
         table: {
-          headers: ['遗址名称', '位置', '时代', '保护级别'],
+          headers: ["遗址名称", "位置", "时代", "保护级别"],
           rows: [
-            ['山陕会馆', '聊城古城东', '清代', '全国重点文物保护单位'],
-            ['大小码头遗址', '运河沿岸', '明清', '省级文物保护单位'],
-            ['周店船闸', '阳谷县', '元代', '省级文物保护单位'],
-            ['七级码头', '临清市', '明清', '市级文物保护单位']
-          ]
-        }
+            ["山陕会馆", "聊城古城东", "清代", "全国重点文物保护单位"],
+            ["大小码头遗址", "运河沿岸", "明清", "省级文物保护单位"],
+            ["周店船闸", "阳谷县", "元代", "省级文物保护单位"],
+            ["七级码头", "临清市", "明清", "市级文物保护单位"],
+          ],
+        },
       },
       {
-        title: '四、保护与利用',
-        content: '近年来，聊城市高度重视大运河文化遗产的保护与利用工作：',
+        title: "四、保护与利用",
+        content: "近年来，聊城市高度重视大运河文化遗产的保护与利用工作：",
         subsections: [
           {
-            title: '1. 保护措施',
+            title: "1. 保护措施",
             list: [
-              '制定大运河聊城段保护规划',
-              '实施遗址保护工程',
-              '建立数字化档案',
-              '加强环境整治'
-            ]
+              "制定大运河聊城段保护规划",
+              "实施遗址保护工程",
+              "建立数字化档案",
+              "加强环境整治",
+            ],
           },
           {
-            title: '2. 利用方向',
+            title: "2. 利用方向",
             list: [
-              '发展文化旅游产业',
-              '建设运河文化景观带',
-              '开展运河文化研究',
-              '举办运河文化节庆活动'
-            ]
+              "发展文化旅游产业",
+              "建设运河文化景观带",
+              "开展运河文化研究",
+              "举办运河文化节庆活动",
+            ],
           },
           {
-            title: '3. 未来展望',
-            content: '随着大运河文化带建设的深入推进，聊城段运河将迎来新的发展机遇。未来将重点做好以下几个方面的工作：',
+            title: "3. 未来展望",
+            content:
+              "随着大运河文化带建设的深入推进，聊城段运河将迎来新的发展机遇。未来将重点做好以下几个方面的工作：",
             plan: [
               {
-                number: '01',
-                title: '遗产保护',
-                content: '加强文物本体保护和周边环境整治'
+                number: "01",
+                title: "遗产保护",
+                content: "加强文物本体保护和周边环境整治",
               },
               {
-                number: '02',
-                title: '文化传承',
-                content: '挖掘运河文化内涵，传承运河精神'
+                number: "02",
+                title: "文化传承",
+                content: "挖掘运河文化内涵，传承运河精神",
               },
               {
-                number: '03',
-                title: '旅游开发',
-                content: '打造运河文化旅游精品线路'
+                number: "03",
+                title: "旅游开发",
+                content: "打造运河文化旅游精品线路",
               },
               {
-                number: '04',
-                title: '生态建设',
-                content: '建设运河生态廊道，改善生态环境'
-              }
-            ]
-          }
-        ]
+                number: "04",
+                title: "生态建设",
+                content: "建设运河生态廊道，改善生态环境",
+              },
+            ],
+          },
+        ],
       },
       {
-        title: '五、结语',
-        content: '大运河聊城段是聊城历史文化的重要载体，见证了聊城的发展变迁，承载着聊城人民的集体记忆。保护好、传承好、利用好大运河文化遗产，对于延续历史文脉、建设文化强市、推动高质量发展具有重要意义。在新的历史条件下，我们要深入挖掘大运河文化内涵，讲好运河故事，让古老的运河焕发新的生机与活力，为聊城经济社会发展注入文化动力。'
-      }
-    ]
+        title: "五、结语",
+        content:
+          "大运河聊城段是聊城历史文化的重要载体，见证了聊城的发展变迁，承载着聊城人民的集体记忆。保护好、传承好、利用好大运河文化遗产，对于延续历史文脉、建设文化强市、推动高质量发展具有重要意义。在新的历史条件下，我们要深入挖掘大运河文化内涵，讲好运河故事，让古老的运河焕发新的生机与活力，为聊城经济社会发展注入文化动力。",
+      },
+    ],
   },
   resources: [
     {
-      icon: '📷',
-      text: '运河历史照片图集',
-      link: '#'
+      icon: "📷",
+      text: "运河历史照片图集",
+      link: "#",
     },
     {
-      icon: '🎥',
-      text: '运河文化纪录片',
-      link: '#'
+      icon: "🎥",
+      text: "运河文化纪录片",
+      link: "#",
     },
     {
-      icon: '🗺️',
-      text: '运河遗址分布图',
-      link: '#'
+      icon: "🗺️",
+      text: "运河遗址分布图",
+      link: "#",
     },
     {
-      icon: '📖',
-      text: '运河研究文献',
-      link: '#'
-    }
+      icon: "📖",
+      text: "运河研究文献",
+      link: "#",
+    },
   ],
-  tags: ['大运河', '聊城', '文化遗产', '历史变迁', '文化价值'],
+  tags: ["大运河", "聊城", "文化遗产", "历史变迁", "文化价值"],
   prevArticle: {
-    title: '黄河文化在聊城的传承与发展',
-    link: '#'
+    title: "黄河文化在聊城的传承与发展",
+    link: "#",
   },
   nextArticle: {
-    title: '运河古商埠：聊城的商业文化记忆',
-    link: '#'
-  }
+    title: "运河古商埠：聊城的商业文化记忆",
+    link: "#",
+  },
 });
 
 // 相关文章
 const relatedArticles = ref([
   {
-    tag: '两河文化',
-    title: '运河古商埠：聊城的商业文化记忆',
-    link: '#'
+    tag: "两河文化",
+    title: "运河古商埠：聊城的商业文化记忆",
+    link: "#",
   },
   {
-    tag: '两河文化',
-    title: '两河交汇处的聊城古城格局研究',
-    link: '#'
+    tag: "两河文化",
+    title: "两河交汇处的聊城古城格局研究",
+    link: "#",
   },
   {
-    tag: '两河文化',
-    title: '漕运文化对聊城民俗的影响',
-    link: '#'
-  }
+    tag: "两河文化",
+    title: "漕运文化对聊城民俗的影响",
+    link: "#",
+  },
 ]);
 </script>
 
@@ -222,8 +234,14 @@ const relatedArticles = ref([
                 </div>
 
                 <div class="article-body">
-                  <div class="culture-image-large"
-                    style="background: linear-gradient(135deg, #2a6e8b 0%, #4a9ccc 100%);">
+                  <div class="culture-image-large" style="
+                      background: linear-gradient(
+                        135deg,
+                        #2a6e8b 0%,
+                        #4a9ccc 100%
+                      );
+                    ">
+                    <img :src="article.image" alt="大运河聊城段今貌" />
                     <div class="image-caption">大运河聊城段今貌</div>
                   </div>
 
@@ -232,8 +250,9 @@ const relatedArticles = ref([
 
                     <p v-if="section.content">{{ section.content }}</p>
 
-                    <div v-if="section.subsections" v-for="(subsection, subsectionIndex) in section.subsections"
-                      :key="subsectionIndex">
+                    <div v-if="section.subsections" v-for="(
+subsection, subsectionIndex
+                      ) in section.subsections" :key="subsectionIndex">
                       <h4>{{ subsection.title }}</h4>
                       <p v-if="subsection.content">{{ subsection.content }}</p>
 
@@ -242,17 +261,23 @@ const relatedArticles = ref([
                         <cite>{{ (subsection as any).quote.source }}</cite>
                       </div>
 
-                      <ul v-if="subsection.list && (subsection as any).listType !== 'ol'">
+                      <ul v-if="
+                        subsection.list &&
+                        (subsection as any).listType !== 'ol'
+                      ">
                         <li v-for="(item, itemIndex) in subsection.list" :key="itemIndex" v-html="item"></li>
                       </ul>
 
-                      <ol v-if="subsection.list && (subsection as any).listType === 'ol'">
+                      <ol v-if="
+                        subsection.list &&
+                        (subsection as any).listType === 'ol'
+                      ">
                         <li v-for="(item, itemIndex) in subsection.list" :key="itemIndex" v-html="item"></li>
                       </ol>
 
                       <div v-if="(subsection as any).plan" class="future-plan">
-                        <div v-for="(planItem, planIndex) in (subsection as any).plan" :key="planIndex"
-                          class="plan-item">
+                        <div v-for="(planItem, planIndex) in (subsection as any)
+                          .plan" :key="planIndex" class="plan-item">
                           <div class="plan-number">{{ planItem.number }}</div>
                           <div class="plan-content">
                             <h5>{{ planItem.title }}</h5>
@@ -275,13 +300,17 @@ const relatedArticles = ref([
                     <table v-if="section.table" class="culture-table">
                       <thead>
                         <tr>
-                          <th v-for="(header, headerIndex) in section.table.headers" :key="headerIndex">{{ header }}
+                          <th v-for="(header, headerIndex) in section.table
+                            .headers" :key="headerIndex">
+                            {{ header }}
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr v-for="(row, rowIndex) in section.table.rows" :key="rowIndex">
-                          <td v-for="(cell, cellIndex) in row" :key="cellIndex">{{ cell }}</td>
+                          <td v-for="(cell, cellIndex) in row" :key="cellIndex">
+                            {{ cell }}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -328,8 +357,7 @@ const relatedArticles = ref([
               <div class="section-header">
                 <h3 class="section-title">地方文化</h3>
               </div>
-              <div class="culture-nav">
-              </div>
+              <div class="culture-nav"></div>
             </section>
 
             <!-- 相关文章 -->
@@ -340,16 +368,16 @@ const relatedArticles = ref([
               <ul class="sidebar-list">
                 <li v-for="(item, index) in relatedArticles" :key="index" class="sidebar-item">
                   <span class="sidebar-tag">{{ item.tag }}</span>
-                  <a :href="item.link" class="sidebar-title">{{ item.title }}</a>
+                  <a :href="item.link" class="sidebar-title">{{
+                    item.title
+                  }}</a>
                 </li>
               </ul>
             </section>
-
           </div>
         </div>
       </div>
     </main>
-
   </div>
 </template>
 
@@ -417,7 +445,9 @@ const relatedArticles = ref([
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .value-item:hover {
@@ -490,7 +520,9 @@ const relatedArticles = ref([
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .plan-item:hover {
@@ -555,7 +587,9 @@ const relatedArticles = ref([
   border-radius: 6px;
   text-decoration: none;
   color: #333;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .resource-link:hover {
@@ -595,7 +629,9 @@ const relatedArticles = ref([
   font-size: 14px;
   margin-right: 10px;
   margin-bottom: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .tag:hover {
@@ -654,7 +690,9 @@ const relatedArticles = ref([
   text-decoration: none;
   color: #333;
   font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .share-btn:hover {
@@ -663,15 +701,15 @@ const relatedArticles = ref([
 }
 
 .share-btn.wechat:hover {
-  background-color: #07C160;
+  background-color: #07c160;
 }
 
 .share-btn.weibo:hover {
-  background-color: #E6162D;
+  background-color: #e6162d;
 }
 
 .share-btn.qq:hover {
-  background-color: #12B7F5;
+  background-color: #12b7f5;
 }
 
 .sidebar-section {
