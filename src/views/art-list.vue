@@ -143,7 +143,10 @@ const showPrevArtwork = () => {
   const filtered = filteredArtworks.value;
   const currentIndex = filtered.findIndex(art => art.id === currentArtwork.value);
   if (currentIndex > 0) {
-    currentArtwork.value = filtered[currentIndex - 1].id;
+    const prevArt = filtered[currentIndex - 1];
+    if (prevArt) {
+      currentArtwork.value = prevArt.id;
+    }
   }
 };
 
@@ -152,7 +155,10 @@ const showNextArtwork = () => {
   const filtered = filteredArtworks.value;
   const currentIndex = filtered.findIndex(art => art.id === currentArtwork.value);
   if (currentIndex < filtered.length - 1) {
-    currentArtwork.value = filtered[currentIndex + 1].id;
+    const nextArt = filtered[currentIndex + 1];
+    if (nextArt) {
+      currentArtwork.value = nextArt.id;
+    }
   }
 };
 
