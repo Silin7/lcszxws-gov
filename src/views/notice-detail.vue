@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import pageJump from "@/hooks/pageJump";
 
+// 文章详情
 const noticeData = ref({
   title: "关于征集聊城市政协文史资料的公告",
   publishTime: "2026-01-06",
@@ -125,44 +127,48 @@ const noticeData = ref({
       text: "<strong>聊城市政协文化文史和学习委员会</strong><br/><strong>2026 年 1 月 6 日</strong>"
     }
   ],
-  latestNews: [
-    {
-      badge: "动态",
-      title: "聊城市\"数字政协\"平台\"获评省信息技术应用创新\"典型应用案例\"",
-      link: "/news/detai-20251231001.html"
-    },
-    {
-      badge: "动态",
-      title: "\"墨彩颂华诞·政协建新功\"——聊城市政协庆祝新中国和人民政协成立 75 周年书画作品展在孔繁森同志纪念馆开展",
-      link: "/news/detai-20240905001.html"
-    },
-    {
-      badge: "动态",
-      title: "市政协召开文史资料工作座谈会",
-      link: "/news/detail-20250925001.html"
-    }
-  ],
-  relatedBooks: [
-    {
-      name: "《聊城文化史》",
-      author: "聊城市政协委员会编",
-      cover: "/public/images/books/wenhuashi.jpg",
-      link: "/literature/detail_1.html"
-    },
-    {
-      name: "《聊城重要历史人物》",
-      author: "聊城市政协文史资料委员会",
-      cover: "/public/images/books/lishirenwu.jpg",
-      link: "/literature/detail_3.html"
-    },
-    {
-      name: "《聊城脱贫攻坚口述史》",
-      author: "聊城市政协文化史和学习委员会",
-      cover: "/public/images/books/tuopingongjian.jpg",
-      link: "/literature/detail_4.html"
-    }
-  ]
 });
+
+// 新闻动态
+const latestNews = ref([
+  {
+    badge: "动态",
+    title: "聊城市\"数字政协\"平台\"获评省信息技术应用创新\"典型应用案例\"",
+    id: "20251231001"
+  },
+  {
+    badge: "动态",
+    title: "\"墨彩颂华诞·政协建新功\"——聊城市政协庆祝新中国和人民政协成立 75 周年书画作品展在孔繁森同志纪念馆开展",
+    id: "20240905001"
+  },
+  {
+    badge: "动态",
+    title: "市政协召开文史资料工作座谈会",
+    id: "20250925001"
+  }
+]);
+
+// 文史典籍
+const relatedBooks = ref([
+  {
+    name: "《聊城文化史》",
+    author: "聊城市政协委员会编",
+    cover: "/public/images/books/wenhuashi.jpg",
+    id: "1"
+  },
+  {
+    name: "《聊城重要历史人物》",
+    author: "聊城市政协文史资料委员会",
+    cover: "/public/images/books/lishirenwu.jpg",
+    id: "3"
+  },
+  {
+    name: "《聊城脱贫攻坚口述史》",
+    author: "聊城市政协文化史和学习委员会",
+    cover: "/public/images/books/tuopingongjian.jpg",
+    id: "4"
+  }
+]);
 </script>
 
 <template>
@@ -170,8 +176,8 @@ const noticeData = ref({
     <section class="page-header">
       <div class="container">
         <div class="breadcrumb">
-          <a href="index.html">首页</a> &gt;
-          <a href="notice-list.html">通知公告</a> &gt;
+          <a @click.prevent="pageJump('home')">首页</a> &gt;
+          <a @click.prevent="pageJump('notice-list')">通知公告</a> &gt;
           <span>文章详情</span>
         </div>
       </div>
@@ -218,12 +224,12 @@ const noticeData = ref({
             <section class="sidebar-section">
               <div class="section-header">
                 <h3 class="section-title">新闻动态</h3>
-                <a href="/news-list.html" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="pageJump('news-list')" class="more-link">更多&gt;&gt;</a>
               </div>
               <ul class="sidebar-list">
-                <li v-for="(news, index) in noticeData.latestNews" :key="index" class="sidebar-item">
+                <li v-for="(news, index) in latestNews" :key="index" class="sidebar-item">
                   <span class="sidebar-badge">{{ news.badge }}</span>
-                  <a :href="news.link" class="sidebar-title">{{ news.title }}</a>
+                  <a @click.prevent="pageJump('news-detail', { id: news.id })" class="sidebar-title">{{ news.title }}</a>
                 </li>
               </ul>
             </section>
@@ -231,17 +237,17 @@ const noticeData = ref({
             <section class="sidebar-section">
               <div class="section-header">
                 <h3 class="section-title">文史典籍</h3>
-                <a href="/literature-list.html" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="pageJump('literature-list')" class="more-link">更多&gt;&gt;</a>
               </div>
               <div class="sidebar-books">
-                <div v-for="(book, index) in noticeData.relatedBooks" :key="index" class="sidebar-book">
+                <div v-for="(book, index) in relatedBooks" :key="index" class="sidebar-book">
                   <div class="book-cover-mini">
                     <img :src="book.cover" :alt="book.name">
                   </div>
                   <div class="book-info-mini">
                     <h4 class="book-title-mini">{{ book.name }}</h4>
                     <p class="book-author">{{ book.author }}</p>
-                    <a :href="book.link" class="book-link">在线阅读</a>
+                    <a @click.prevent="pageJump('literature-detail', { id: book.id })" class="book-link">在线阅读</a>
                   </div>
                 </div>
               </div>

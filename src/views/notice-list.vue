@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import pageJump from '@/hooks/pageJump';
 
 // 通知公告数据
 const noticeTotal = ref(1);
@@ -59,7 +60,7 @@ const recommendList = ref([
                 </div>
                 <div class="article-content">
                   <h3 class="article-title">
-                    <a href="/notice/detai-20260106001.html">{{ item.title }}</a>
+                    <a @click.prevent="pageJump('notice-detail', { id: item.id })">{{ item.title }}</a>
                     <span v-if="item.tag === 'important'" class="article-tag important">重要</span>
                   </h3>
                   <p class="article-desc">
@@ -78,7 +79,7 @@ const recommendList = ref([
             <section class="recommend-section">
               <div class="section-header">
                 <h3 class="section-title">推荐文史典籍</h3>
-                <a href="/literature-list.html" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="pageJump('literature-list')" class="more-link">更多&gt;&gt;</a>
               </div>
               <div class="recommend-list">
                 <div v-for="(item, index) in recommendList" :key="index" class="recommend-item">
@@ -88,7 +89,7 @@ const recommendList = ref([
                   <div class="recommend-info">
                     <h4 class="recommend-title">{{ item.title }}</h4>
                     <p class="recommend-desc">{{ item.desc }}</p>
-                    <a :href="`/literature/detail_${item.id}.html`" class="recommend-link">查看详情</a>
+                    <a @click.prevent="pageJump('literature-detail', { id: item.id })" class="recommend-link">查看详情</a>
                   </div>
                 </div>
               </div>

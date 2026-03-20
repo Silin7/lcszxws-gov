@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import pageJump from '@/hooks/pageJump';
 
 const peopleData = ref({
   name: "张怀德",
@@ -126,8 +127,8 @@ const peopleData = ref({
     <section class="page-header">
       <div class="container">
         <div class="breadcrumb">
-          <a href="/index.html">首页</a> &gt;
-          <a href="/people-list.html">人物春秋</a> &gt;
+          <a @click.prevent="pageJump('home')">首页</a> &gt;
+          <a @click.prevent="pageJump('people-list')">人物春秋</a> &gt;
           <span>人物详情</span>
         </div>
       </div>

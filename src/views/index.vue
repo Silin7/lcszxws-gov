@@ -327,7 +327,7 @@ const friendData: any = ref([
                     <ul class="county-list">
                       <li v-for="(item, index) in dynamicData" :key="index" class="county-item">
                         <span class="county-badge">{{ item.badge }}</span>
-                        <a href="/countynews/detai-20251029001.html" class="county-title">{{ item.title }}</a>
+                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title }}</a>
                         <span class="county-date">{{ item.date }}</span>
                       </li>
                     </ul>
@@ -339,7 +339,7 @@ const friendData: any = ref([
                     <ul class="county-list">
                       <li v-for="(item, index) in collectionData" :key="index" class="county-item">
                         <span class="county-badge">{{ item.badge }}</span>
-                        <a href="/countyculture/detai-20220111001.html" class="county-title">{{ item.title }}</a>
+                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title }}</a>
                         <span class="county-date">{{ item.date }}</span>
                       </li>
                     </ul>
@@ -360,7 +360,7 @@ const friendData: any = ref([
               <ul class="notice-list">
                 <li v-for="(item, index) in noticeData" :key="index" class="notice-item">
                   <span class="notice-badge">{{ item.badge }}</span>
-                  <a href="/notice/detai-20260106001.html" class="notice-title">{{ item.title }}</a>
+                  <a @click.prevent="pageJump('notice-detail', { id: item.id })" class="notice-title">{{ item.title }}</a>
                   <span class="notice-date">{{ item.date }}</span>
                 </li>
               </ul>
