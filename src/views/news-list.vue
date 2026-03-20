@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import pageJump from "@/hooks/pageJump";
+
 
 // 文史动态
 const articleTotal = ref(3);
@@ -87,7 +89,8 @@ const recommendList = ref([
                 </div>
                 <div class="article-content">
                   <h3 class="article-title">
-                    <a href="/news/detai-20251231001.html">{{ item.title }}</a>
+                    <a @click.prevent="pageJump('news-detail', { id: item.id })">{{
+                      item.title }}</a>
                     <span v-if="item.tag === 'new'" class="article-tag new">最新</span>
                     <span v-if="item.hot" class="article-tag hot">热门</span>
                   </h3>

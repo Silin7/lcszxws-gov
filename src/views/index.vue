@@ -278,7 +278,7 @@ const friendData: any = ref([
             <section id="news" class="content-section news-section">
               <div class="section-header">
                 <h2 class="section-title">文史动态</h2>
-                <a href="/news-list" @click.prevent="pageJump('news-list')" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="pageJump('news-list')" class="more-link">更多&gt;&gt;</a>
               </div>
               <div class="news-list">
                 <div v-for="(item, index) in newsData" :key="index" class="news-item">
@@ -288,7 +288,7 @@ const friendData: any = ref([
                   </div>
                   <div class="news-content">
                     <h3 class="news-title">
-                      <a href="/news/detai-20260111001.html" @click.prevent="pageJump('news-detai', { id: item.id })">{{
+                      <a @click.prevent="pageJump('news-detail', { id: item.id })">{{
                         item.title }}</a>
                     </h3>
                     <p class="news-desc">

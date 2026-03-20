@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import pageJump from "@/hooks/pageJump";
 
 const articleData = ref({
   title: "市政协召开文史资料征集工作座谈会",
@@ -106,61 +107,25 @@ const articleData = ref({
     title: "市政协开展运河文化专题调研",
     link: "#"
   },
-  latestNews: [
-    {
-      date: "10-15",
-      title: "市政协召开文史资料征集工作座谈会",
-      link: "#"
-    },
-    {
-      date: "10-08",
-      title: "聊城政协历程展厅正式对外开放",
-      link: "#"
-    },
-    {
-      date: "09-28",
-      title: "市政协开展运河文化专题调研",
-      link: "#"
-    }
-  ],
-  relatedBooks: [
-    {
-      name: "《聊城通史》",
-      author: "主编：王立新",
-      color: "#9e2a2a",
-      link: "#"
-    },
-    {
-      name: "《运河文化研究》",
-      author: "编著：李明华",
-      color: "#a64d4d",
-      link: "#"
-    },
-    {
-      name: "《聊城非遗图录》",
-      author: "编委会",
-      color: "#b35959",
-      link: "#"
-    }
-  ],
-  relatedArticles: [
-    {
-      badge: "新闻",
-      title: "文史馆新增一批珍贵文献资料",
-      link: "#"
-    },
-    {
-      badge: "通知",
-      title: "关于征集政协文史研究课题的公告",
-      link: "#"
-    },
-    {
-      badge: "新闻",
-      title: "举办\"古城记忆\"老照片展",
-      link: "#"
-    }
-  ]
 });
+
+const latestNews = ref([
+  {
+    date: "10-15",
+    title: "市政协召开文史资料征集工作座谈会",
+    id: "1"
+  },
+  {
+    date: "10-08",
+    title: "聊城政协历程展厅正式对外开放",
+    id: "2"
+  },
+  {
+    date: "09-28",
+    title: "市政协开展运河文化专题调研",
+    id: "3"
+  }
+]);
 </script>
 
 <template>
@@ -168,8 +133,8 @@ const articleData = ref({
     <section class="page-header">
       <div class="container">
         <div class="breadcrumb">
-          <a href="index.html">首页</a> &gt;
-          <a href="news-list.html">新闻动态</a> &gt;
+          <a @click.prevent="pageJump('home')">首页</a> &gt;
+          <a @click.prevent="pageJump('news-list')">新闻动态</a> &gt;
           <span>文章详情</span>
         </div>
       </div>
@@ -252,42 +217,10 @@ const articleData = ref({
                 <h3 class="section-title">最新动态</h3>
               </div>
               <ul class="sidebar-list">
-                <li v-for="(news, index) in articleData.latestNews" :key="index" class="sidebar-item">
+                <li v-for="(news, index) in latestNews" :key="index" class="sidebar-item">
                   <span class="sidebar-date">{{ news.date }}</span>
-                  <a :href="news.link" class="sidebar-title">{{
+                  <a @click.prevent="pageJump('news-detail', { id: news.id })" class="sidebar-title">{{
                     news.title
-                  }}</a>
-                </li>
-              </ul>
-            </section>
-
-            <section class="sidebar-section">
-              <div class="section-header">
-                <h3 class="section-title">文史典籍</h3>
-              </div>
-              <div class="sidebar-books">
-                <div v-for="(book, index) in articleData.relatedBooks" :key="index" class="sidebar-book">
-                  <div class="book-cover-mini" :style="{ backgroundColor: book.color }">
-                    <div class="book-title-mini">{{ book.name }}</div>
-                  </div>
-                  <div class="book-info-mini">
-                    <h4 class="book-title-mini">{{ book.name }}</h4>
-                    <p class="book-author">{{ book.author }}</p>
-                    <a :href="book.link" class="book-link">在线阅读</a>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="sidebar-section">
-              <div class="section-header">
-                <h3 class="section-title">相关文章</h3>
-              </div>
-              <ul class="sidebar-list">
-                <li v-for="(article, index) in articleData.relatedArticles" :key="index" class="sidebar-item">
-                  <span class="sidebar-badge">{{ article.badge }}</span>
-                  <a :href="article.link" class="sidebar-title">{{
-                    article.title
                   }}</a>
                 </li>
               </ul>
