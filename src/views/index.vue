@@ -327,7 +327,8 @@ const friendData: any = ref([
                     <ul class="county-list">
                       <li v-for="(item, index) in dynamicData" :key="index" class="county-item">
                         <span class="county-badge">{{ item.badge }}</span>
-                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title }}</a>
+                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title
+                        }}</a>
                         <span class="county-date">{{ item.date }}</span>
                       </li>
                     </ul>
@@ -339,7 +340,8 @@ const friendData: any = ref([
                     <ul class="county-list">
                       <li v-for="(item, index) in collectionData" :key="index" class="county-item">
                         <span class="county-badge">{{ item.badge }}</span>
-                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title }}</a>
+                        <a @click.prevent="pageJump('news-detail', { id: item.id })" class="county-title">{{ item.title
+                        }}</a>
                         <span class="county-date">{{ item.date }}</span>
                       </li>
                     </ul>
@@ -355,12 +357,13 @@ const friendData: any = ref([
             <section id="notice" class="notice-section content-section">
               <div class="section-header">
                 <h2 class="section-title">通知公告</h2>
-                <a href="/notice-list" @click.prevent="pageJump('notice-list')" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="pageJump('notice-list')" class="more-link">更多&gt;&gt;</a>
               </div>
               <ul class="notice-list">
                 <li v-for="(item, index) in noticeData" :key="index" class="notice-item">
                   <span class="notice-badge">{{ item.badge }}</span>
-                  <a @click.prevent="pageJump('notice-detail', { id: item.id })" class="notice-title">{{ item.title }}</a>
+                  <a @click.prevent="pageJump('notice-detail', { id: item.id })" class="notice-title">{{ item.title
+                  }}</a>
                   <span class="notice-date">{{ item.date }}</span>
                 </li>
               </ul>
@@ -375,7 +378,7 @@ const friendData: any = ref([
             <section class="content-section video-section">
               <div class="section-header">
                 <h2 class="section-title">影像</h2>
-                <a href="#" @click.prevent="" class="more-link">更多&gt;&gt;</a>
+                <a @click.prevent="" class="more-link">更多&gt;&gt;</a>
               </div>
 
               <div class="video-player" id="videoPlayer">
@@ -394,7 +397,7 @@ const friendData: any = ref([
                 </div>
               </div>
               <div class="video-info">
-                <a href="#" @click.prevent="" class="view-more">查看更多影像 &gt;</a>
+                <a @click.prevent="" class="view-more">查看更多影像 &gt;</a>
               </div>
             </section>
           </div>
@@ -406,13 +409,12 @@ const friendData: any = ref([
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">文史典籍</h2>
-            <a href="/literature-list.html" @click.prevent="pageJump('literature-list')"
-              class="more-link">更多&gt;&gt;</a>
+            <a @click.prevent="pageJump('literature-list')" class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="literature-grid">
             <!-- 第一本书 -->
             <div v-for="(item, index) in literatureData" :key="index" class="literature-item">
-              <a href="/literature/detail_1.html" class="book-link">
+              <a @click.prevent="pageJump('literature-detail', { id: item.id })" class="book-link">
                 <div class="book-cover">
                   <img :src="item.img" alt="item.title" class="book-img" />
                   <div class="book-hover">
@@ -439,12 +441,12 @@ const friendData: any = ref([
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">人物春秋</h2>
-            <a href="/people-list.html" class="more-link">更多&gt;&gt;</a>
+            <a @click.prevent="pageJump('people-list')" class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="people-grid">
             <div v-for="(item, index) in peopleData" :key="index"
               :class="{ 'people-item': true, featured: index === 0 }">
-              <a href="/people/people-jixianlin.html" class="people-link">
+              <a @click.prevent="pageJump('people-detail', { id: item.id })" class="people-link">
                 <div class="people-image">
                   <img :src="item.img" style="max-height: 450px; width: auto" />
                 </div>
@@ -466,7 +468,7 @@ const friendData: any = ref([
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">书画作品</h2>
-            <a href="/art-list.html" class="more-link">更多&gt;&gt;</a>
+            <a @click.prevent="pageJump('art-list')" class="more-link">更多&gt;&gt;</a>
           </div>
           <div class="art-grid">
             <div v-for="(item, index) in artData" :key="index" :class="{ 'art-item': true, featured: item.detailed }"

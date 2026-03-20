@@ -1,6 +1,7 @@
 ss
 <script setup lang="ts">
 import { ref } from "vue";
+import pageJump from '@/hooks/pageJump';
 
 // 文章数据
 const article = ref({
@@ -181,22 +182,44 @@ const article = ref({
   },
 });
 
+// 分类数据
+const categories = ref([
+  {
+    id: 'river-culture',
+    name: '两河文化',
+    icon: '🌊',
+    count: 2
+  },
+  {
+    id: 'intangible-culture',
+    name: '非遗传承',
+    icon: '🎭',
+    count: 2
+  },
+  {
+    id: 'historic-sites',
+    name: '名胜古迹',
+    icon: '🏛️',
+    count: 2
+  }
+]);
+
 // 相关文章
 const relatedArticles = ref([
   {
     tag: "两河文化",
     title: "运河古商埠：聊城的商业文化记忆",
-    link: "#",
+    id: 1,
   },
   {
     tag: "两河文化",
     title: "两河交汇处的聊城古城格局研究",
-    link: "#",
+    id: 2,
   },
   {
     tag: "两河文化",
     title: "漕运文化对聊城民俗的影响",
-    link: "#",
+    id: 3,
   },
 ]);
 </script>
@@ -207,8 +230,8 @@ const relatedArticles = ref([
     <section class="page-header">
       <div class="container">
         <div class="breadcrumb">
-          <a href="/index.html">首页</a> &gt;
-          <a href="/culture-list.html">地方撷英</a> &gt;
+          <a @click.prevent="pageJump('index')">首页</a> &gt;
+          <a @click.prevent="pageJump('culture-list')">地方撷英</a> &gt;
           <span>文章详情</span>
         </div>
       </div>
@@ -357,7 +380,15 @@ subsection, subsectionIndex
               <div class="section-header">
                 <h3 class="section-title">地方文化</h3>
               </div>
-              <div class="culture-nav"></div>
+              <div class="category-nav">
+                <button v-for="(category, index) in categories" :key="index" class="category-btn"
+                  @click="pageJump('culture-list', { category: category.id })">
+                  <div class="category-icon">{{ category.icon }}</div>
+                  <div class="category-content">
+                    <h4 class="category-title">{{ category.name }}</h4>
+                  </div>
+                </button>
+              </div>
             </section>
 
             <!-- 相关文章 -->
@@ -368,7 +399,7 @@ subsection, subsectionIndex
               <ul class="sidebar-list">
                 <li v-for="(item, index) in relatedArticles" :key="index" class="sidebar-item">
                   <span class="sidebar-tag">{{ item.tag }}</span>
-                  <a :href="item.link" class="sidebar-title">{{
+                  <a @click.prevent="pageJump('culture-detail', { id: item.id })" class="sidebar-title">{{
                     item.title
                   }}</a>
                 </li>

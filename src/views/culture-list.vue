@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import pageJump from '@/hooks/pageJump';
+import { useRoute } from 'vue-router';
 
 // 分类数据
 const categories = ref([
@@ -24,7 +26,8 @@ const categories = ref([
 ]);
 
 // 当前选中的分类
-const currentCategory = ref('river-culture');
+const route = useRoute();
+const currentCategory = ref(route.query.category || 'river-culture');
 
 // 文章数据
 const articleList = ref({
@@ -147,7 +150,7 @@ const currentCategoryInfo = () => {
                   </div>
                   <div class="article-content">
                     <h3 class="article-title">
-                      <a :href="item.link">{{ item.title }}</a>
+                      <a @click.prevent="pageJump('culture-detail', { id: item.id })">{{ item.title }}</a>
                       <span class="article-tag">{{ item.tag }}</span>
                     </h3>
                     <p class="article-desc">
@@ -175,13 +178,8 @@ const currentCategoryInfo = () => {
                 <h3 class="section-title">地方撷英</h3>
               </div>
               <div class="category-nav">
-                <button 
-                  v-for="category in categories" 
-                  :key="category.id"
-                  class="category-btn"
-                  :class="{ active: category.id === currentCategory }"
-                  @click="switchCategory(category.id)"
-                >
+                <button v-for="category in categories" :key="category.id" class="category-btn"
+                  :class="{ active: category.id === currentCategory }" @click="switchCategory(category.id)">
                   <div class="category-icon">{{ category.icon }}</div>
                   <div class="category-content">
                     <h4 class="category-title">{{ category.name }}</h4>
