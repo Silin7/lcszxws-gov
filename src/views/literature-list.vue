@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import pageJump from '@/hooks/pageJump';
 
 // 分类数据
 const categories = ref([
@@ -118,19 +119,15 @@ const literatureRows = computed(() => {
       <div class="container">
         <!-- 典籍分类导航 -->
         <div class="literature-category-nav">
-          <button 
-            v-for="category in categories" 
-            :key="category.id"
-            class="category-btn"
-            :class="{ active: category.id === currentCategory }"
-            @click="switchCategory(category.id)"
-          >{{ category.name }}</button>
+          <button v-for="category in categories" :key="category.id" class="category-btn"
+            :class="{ active: category.id === currentCategory }" @click="switchCategory(category.id)">{{ category.name
+            }}</button>
         </div>
 
         <!-- 典籍展示区 - 每行2本书 -->
         <div class="literature-showcase">
           <div v-for="(row, rowIndex) in literatureRows" :key="rowIndex" class="literature-row">
-            <div v-for="(item, itemIndex) in row" :key="item.id" class="literature-item" :data-category="item.category">
+            <div v-for="(item, index) in row" :key="index" class="literature-item" :data-category="item.category">
               <div class="book-cover">
                 <img :src="item.cover" :alt="item.name" class="cover-image">
                 <div class="book-badge">{{ item.badge }}</div>
@@ -140,7 +137,7 @@ const literatureRows = computed(() => {
                 <p class="book-author">{{ item.author }}</p>
                 <p class="book-brief">{{ item.brief }}</p>
               </div>
-              <a :href="item.link" class="book-link">查看详情</a>
+              <a @click.prevent="pageJump('literature-detail', { id: item.id })" class="book-link">查看详情</a>
             </div>
           </div>
         </div>

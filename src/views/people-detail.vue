@@ -9,7 +9,7 @@ const peopleData = ref({
   lifespan: "1935 年 -2018 年",
   age: "享年 83 岁",
   keywords: ["文史工作", "政协建设", "文化保护", "地方志"],
-  avatarGradient: "linear-gradient(135deg, #8B1A1A 0%, #c00 100%)",
+  avatarGradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
   avatarText: "张",
   biography: [
     "张怀德（1935 年 -2018 年），山东省聊城市东昌府区人，中国共产党党员。1953 年参加工作，历任聊城地委办公室秘书、副主任，中共聊城地委宣传部副部长，聊城地区文化局局长等职。",
@@ -90,36 +90,37 @@ const peopleData = ref({
   ],
   prevArticle: {
     title: "王建国 - 文史专家",
-    link: "#"
+    id: "wangjianguo"
   },
   nextArticle: {
     title: "李秀英 - 捐赠代表",
-    link: "#"
+    id: "lixiuying"
   },
-  relatedPeople: [
-    {
-      name: "王建国",
-      title: "文史专家",
-      avatarText: "王",
-      gradient: "linear-gradient(135deg, #A52A2A 0%, #d33 100%)",
-      link: "people-detail-wangjianguo.html"
-    },
-    {
-      name: "李秀英",
-      title: "捐赠代表",
-      avatarText: "李",
-      gradient: "linear-gradient(135deg, #B22222 0%, #e44 100%)",
-      link: "people-detail-lixiuying.html"
-    },
-    {
-      name: "赵明诚",
-      title: "第二届政协副主席",
-      avatarText: "赵",
-      gradient: "linear-gradient(135deg, #0066cc 0%, #3399ff 100%)",
-      link: "people-detail-zhaomingcheng.html"
-    }
-  ]
 });
+
+const relatedPeople = ref([
+  {
+    name: "王建国",
+    title: "文史专家",
+    avatarText: "王",
+    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    id: "wangjianguo"
+  },
+  {
+    name: "李秀英",
+    title: "捐赠代表",
+    avatarText: "李",
+    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    id: "lixiuying"
+  },
+  {
+    name: "赵明诚",
+    title: "第二届政协副主席",
+    avatarText: "赵",
+    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    id: "zhaomingcheng"
+  }
+]);
 </script>
 
 <template>
@@ -141,8 +142,8 @@ const peopleData = ref({
             <article class="people-detail">
               <div class="people-header">
                 <div class="people-avatar-large">
-                  <div class="avatar-image-large" :style="{ background: peopleData.avatarGradient }">
-                    <span class="avatar-text-large">{{ peopleData.avatarText }}</span>
+                  <div class="avatar-image-large">
+                    <img :src="peopleData.avatarGradient">
                   </div>
                 </div>
                 <div class="people-basic-info">
@@ -156,11 +157,7 @@ const peopleData = ref({
                     <span class="age">{{ peopleData.age }}</span>
                   </div>
                   <div class="people-keywords">
-                    <span
-                      v-for="(keyword, index) in peopleData.keywords"
-                      :key="index"
-                      class="keyword"
-                    >
+                    <span v-for="(keyword, index) in peopleData.keywords" :key="index" class="keyword">
                       {{ keyword }}
                     </span>
                   </div>
@@ -178,11 +175,7 @@ const peopleData = ref({
                 <h3 class="section-title">主要贡献</h3>
                 <div class="section-content">
                   <div class="contributions-grid">
-                    <div
-                      v-for="(item, index) in peopleData.contributions"
-                      :key="index"
-                      class="contribution-item"
-                    >
+                    <div v-for="(item, index) in peopleData.contributions" :key="index" class="contribution-item">
                       <div class="contribution-icon">{{ item.icon }}</div>
                       <div class="contribution-content">
                         <h4>{{ item.title }}</h4>
@@ -197,11 +190,7 @@ const peopleData = ref({
                 <h3 class="section-title">著作成果</h3>
                 <div class="section-content">
                   <div class="works-list">
-                    <div
-                      v-for="(work, index) in peopleData.works"
-                      :key="index"
-                      class="work-item"
-                    >
+                    <div v-for="(work, index) in peopleData.works" :key="index" class="work-item">
                       <div class="work-cover" :style="{ background: work.gradient }">
                         <div class="work-title">{{ work.title }}</div>
                       </div>
@@ -219,11 +208,7 @@ const peopleData = ref({
                 <h3 class="section-title">社会评价</h3>
                 <div class="section-content">
                   <div class="evaluation-quotes">
-                    <blockquote
-                      v-for="(review, index) in peopleData.evaluations"
-                      :key="index"
-                      class="quote-item"
-                    >
+                    <blockquote v-for="(review, index) in peopleData.evaluations" :key="index" class="quote-item">
                       <p>{{ review.quote }}</p>
                       <cite>{{ review.cite }}</cite>
                     </blockquote>
@@ -235,11 +220,7 @@ const peopleData = ref({
                 <h3 class="section-title">相关文物</h3>
                 <div class="section-content">
                   <div class="artifacts-grid">
-                    <div
-                      v-for="(artifact, index) in peopleData.artifacts"
-                      :key="index"
-                      class="artifact-item"
-                    >
+                    <div v-for="(artifact, index) in peopleData.artifacts" :key="index" class="artifact-item">
                       <div class="artifact-image" :style="{ background: artifact.gradient }">
                         <div class="artifact-text">{{ artifact.type }}</div>
                       </div>
@@ -254,10 +235,10 @@ const peopleData = ref({
 
               <footer class="article-footer">
                 <div class="article-nav">
-                  <a :href="peopleData.prevArticle.link" class="prev-article">
+                  <a @click.prevent="pageJump('people-detail', { id: peopleData.prevArticle.id })" class="prev-article">
                     上一篇：{{ peopleData.prevArticle.title }}
                   </a>
-                  <a :href="peopleData.nextArticle.link" class="next-article">
+                  <a @click.prevent="pageJump('people-detail', { id: peopleData.nextArticle.id })" class="next-article">
                     下一篇：{{ peopleData.nextArticle.title }}
                   </a>
                 </div>
@@ -271,18 +252,14 @@ const peopleData = ref({
                 <h3 class="section-title">相关人物</h3>
               </div>
               <div class="related-people">
-                <div
-                  v-for="(person, index) in peopleData.relatedPeople"
-                  :key="index"
-                  class="related-person"
-                >
-                  <div class="related-avatar" :style="{ background: person.gradient }">
-                    <span class="related-avatar-text">{{ person.avatarText }}</span>
+                <div v-for="(person, index) in relatedPeople" :key="index" class="related-person">
+                  <div class="related-avatar">
+                    <img :src="person.gradient" alt="">
                   </div>
                   <div class="related-info">
                     <h4 class="related-name">{{ person.name }}</h4>
                     <p class="related-title">{{ person.title }}</p>
-                    <a :href="person.link" class="related-link">查看详情</a>
+                    <a @click="pageJump('people-detail', { id: person.id })" class="related-link">查看详情</a>
                   </div>
                 </div>
               </div>

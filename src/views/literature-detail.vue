@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import pageJump from '@/hooks/pageJump';
 
 const literatureData = ref({
   name: "《聊城通史》",
@@ -9,7 +10,7 @@ const literatureData = ref({
   publishTime: "2010年",
   isbn: "978-7-209-05321-5",
   keywords: ["地方史", "通史", "聊城", "历史文化"],
-  coverGradient: "linear-gradient(135deg, #8B1A1A 0%, #c00 100%)",
+  coverGradient: "/public/images/books/dongchangfuzhi.jpg",
   description: `《聊城通史》是一部全面系统记述聊城从古至今发展历程的权威史著。全书共分五卷，200余万字，涵盖政治、经济、文化、社会等各个领域，是研究聊城历史文化的必备参考书。
   
 该书以时间为经，以史实为纬，全面梳理了聊城地区从远古时期到21世纪初的历史发展脉络。编写团队历时八年，查阅了大量档案文献，进行了深入的田野调查，确保了史料的准确性和权威性。
@@ -122,38 +123,40 @@ const literatureData = ref({
       cite: "——张伟（山东省社科院历史所研究员）",
     },
   ],
-  relatedBooks: [
-    {
-      name: "《运河文化研究》",
-      author: "编著：李明华",
-      gradient: "linear-gradient(135deg, #A52A2A 0%, #d33 100%)",
-      coverText: "《运河文化研究》",
-      link: "literature-detail-canal.html",
-    },
-    {
-      name: "《聊城非遗图录》",
-      author: "编委会",
-      gradient: "linear-gradient(135deg, #B22222 0%, #e44 100%)",
-      coverText: "《聊城非遗图录》",
-      link: "literature-detail-intangible.html",
-    },
-    {
-      name: "《政协史料选编》",
-      author: "主编：张怀德",
-      gradient: "linear-gradient(135deg, #2a6e8b 0%, #4a9ccc 100%)",
-      coverText: "《政协史料选编》",
-      link: "literature-detail-zhengxie.html",
-    },
-  ],
   prevArticle: {
     title: "《运河文化研究》",
-    link: "#",
+    id: "literature-detail-canal",
   },
   nextArticle: {
     title: "《聊城非遗图录》",
-    link: "#",
+    id: "literature-detail-intangible",
   },
 });
+
+
+const relatedBooks = ref([
+  {
+    name: "《运河文化研究》",
+    author: "编著：李明华",
+    gradient: "/public/images/books/wenhuashi.jpg",
+    coverText: "《运河文化研究》",
+    id: "canal",
+  },
+  {
+    name: "《聊城非遗图录》",
+    author: "编委会",
+    gradient: "/public/images/books/wenhuashi.jpg",
+    coverText: "《聊城非遗图录》",
+    id: "intangible",
+  },
+  {
+    name: "《政协史料选编》",
+    author: "主编：张怀德",
+    gradient: "/public/images/books/wenhuashi.jpg",
+    coverText: "《政协史料选编》",
+    id: "zhengxie",
+  },
+]);
 </script>
 
 <template>
@@ -165,18 +168,14 @@ const literatureData = ref({
             <article class="literature-detail">
               <div class="literature-header">
                 <div class="book-cover-large">
-                  <div class="cover-image-large" :style="{ background: literatureData.coverGradient }">
-                    <span class="cover-title-large">{{
-                      literatureData.name
-                      }}</span>
+                  <div class="book-cover-large">
+                    <img :src="literatureData.coverGradient" :alt="literatureData.name" class="cover-image-large">
                   </div>
                 </div>
                 <div class="literature-basic-info">
                   <div class="literature-title-row">
                     <h1 class="literature-name">{{ literatureData.name }}</h1>
-                    <span class="literature-category-tag">{{
-                      literatureData.category
-                      }}</span>
+                    <span class="literature-category-tag">{{ literatureData.category }}</span>
                   </div>
                   <p class="literature-author">{{ literatureData.author }}</p>
                   <div class="literature-meta">
@@ -247,7 +246,7 @@ const literatureData = ref({
                       }">
                         <span class="author-text">{{
                           literatureData.authorInfo.avatarText
-                          }}</span>
+                        }}</span>
                       </div>
                     </div>
                     <div class="author-details">
@@ -261,8 +260,8 @@ const literatureData = ref({
                         <p v-for="(
 para, index
                           ) in literatureData.authorInfo.achievements.split(
-                              '\n\n',
-                            )" :key="index">
+  '\n\n',
+)" :key="index">
                           {{ para }}
                         </p>
                       </div>
@@ -285,10 +284,10 @@ para, index
 
               <footer class="article-footer">
                 <div class="article-nav">
-                  <a :href="literatureData.prevArticle.link" class="prev-article">
+                  <a @click="pageJump('literature-detail', { id: literatureData.prevArticle.id })" class="prev-article">
                     上一篇：{{ literatureData.prevArticle.title }}
                   </a>
-                  <a :href="literatureData.nextArticle.link" class="next-article">
+                  <a @click="pageJump('literature-detail', { id: literatureData.nextArticle.id })" class="next-article">
                     下一篇：{{ literatureData.nextArticle.title }}
                   </a>
                 </div>
@@ -302,14 +301,14 @@ para, index
                 <h3 class="section-title">相关典籍</h3>
               </div>
               <div class="related-literature">
-                <div v-for="(book, index) in literatureData.relatedBooks" :key="index" class="related-book">
-                  <div class="related-cover" :style="{ background: book.gradient }">
-                    <span class="related-cover-text">{{ book.coverText }}</span>
+                <div v-for="(book, index) in relatedBooks" :key="index" class="related-book">
+                  <div class="related-cover">
+                    <img :src="book.gradient" :alt="book.name" class="related-cover-image">
                   </div>
                   <div class="related-info">
                     <h4 class="related-name">{{ book.name }}</h4>
                     <p class="related-author">{{ book.author }}</p>
-                    <a :href="book.link" class="related-link">查看详情</a>
+                    <a @click="pageJump('literature-detail', { id: book.id })" class="related-link">查看详情</a>
                   </div>
                 </div>
               </div>
