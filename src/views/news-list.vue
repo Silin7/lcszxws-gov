@@ -50,19 +50,19 @@ const recommendList = ref([
     id: '4',
     title: '《聊城脱贫攻坚口述史》',
     desc: '以亲历、亲见、亲闻为特色，用"小故事"折射"大历史"',
-    cover: '/public/images/books/tuopingongjian.jpg',
+    cover: '/images/books/tuopingongjian.jpg',
   },
   {
     id: '1',
     title: '《聊城文化史》',
     desc: '全面系统记述聊城从古至今文化方面权威史著',
-    cover: '/public/images/books/wenhuashi.jpg',
+    cover: '/images/books/wenhuashi.jpg',
   },
   {
     id: '2',
     title: '《字圣仓颉》',
     desc: '仓颉其人及山东东阿仓颉墓地相关研究的汇集',
-    cover: '/public/images/books/zisheng.jpg',
+    cover: '/images/books/zisheng.jpg',
   },
 ]);
 </script>

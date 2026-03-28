@@ -32,7 +32,7 @@ const literatureList = ref([
     name: '《东昌府志校注》',
     author: '校注：曲成立',
     brief: '该志始修于乾隆三十七年（1772年），历时两年完成编纂，乾隆四十二年（1777年）正式刊行。',
-    cover: '/public/images/books/dongchangfuzhi.jpg',
+    cover: '/images/books/dongchangfuzhi.jpg',
     category: 'history',
     badge: '史志',
     link: '/literature/detail_5.html'
@@ -42,7 +42,7 @@ const literatureList = ref([
     name: '《艺文命脉》',
     author: '聊城市政协文化史和学习文员会',
     brief: '李世钊先生收集聊城文史资料汇编。',
-    cover: '/public/images/books/yiwenmingmai.jpg',
+    cover: '/images/books/yiwenmingmai.jpg',
     category: 'history',
     badge: '史志',
     link: '/literature/detail_6.html'
@@ -52,7 +52,7 @@ const literatureList = ref([
     name: '《聊城文化史》',
     author: '聊城市政协委员会编',
     brief: '全面系统记述聊城从古至今文化方面权威史著，涵盖政治、经济、文化、社会等各个领域。',
-    cover: '/public/images/books/wenhuashi.jpg',
+    cover: '/images/books/wenhuashi.jpg',
     category: 'history',
     badge: '史志',
     link: '/literature/detail_1.html'
@@ -62,7 +62,7 @@ const literatureList = ref([
     name: '《字圣仓颉》',
     author: '主编：王一',
     brief: '该书对仓颉其人特别是对山东东阿仓颉墓地的记载和有关论文等全部汇集在一起。',
-    cover: '/public/images/books/zisheng.jpg',
+    cover: '/images/books/zisheng.jpg',
     category: 'culture',
     badge: '文化',
     link: '/literature/detail_2.html'
@@ -72,7 +72,7 @@ const literatureList = ref([
     name: '《聊城重要历史人物》',
     author: '聊城市政协文史资料委员会',
     brief: '详尽地介绍了160多位在中国历史和聊城历史上曾经产生重大影响的聊城籍或客籍人物。',
-    cover: '/public/images/books/lishirenwu.jpg',
+    cover: '/images/books/lishirenwu.jpg',
     category: 'history',
     badge: '人物',
     link: '/literature/detail_3.html'
@@ -82,7 +82,7 @@ const literatureList = ref([
     name: '《聊城脱贫攻坚口述史》',
     author: '聊城市政协文化史和学习委员会',
     brief: '以亲历、亲见、亲闻为特色，以身边人口述身边事，用"小故事"折射"大历史"。',
-    cover: '/public/images/books/tuopingongjian.jpg',
+    cover: '/images/books/tuopingongjian.jpg',
     category: 'modern',
     badge: '当代',
     link: '/literature/detail_4.html'

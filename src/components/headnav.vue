@@ -91,7 +91,7 @@ function navClick(item: any) {
         <div class="container">
           <div class="header-container">
             <div class="logo-area">
-              <img src="/public/images/logo.png" />
+              <img src="/images/logo.png" />
             </div>
             <!-- 主导航 -->
             <nav class="main-nav">

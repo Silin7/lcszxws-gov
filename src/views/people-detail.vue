@@ -9,7 +9,7 @@ const peopleData = ref({
   lifespan: "1935 年 -2018 年",
   age: "享年 83 岁",
   keywords: ["文史工作", "政协建设", "文化保护", "地方志"],
-  avatarGradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+  avatarGradient: "https://silin.wang/images/jixianlin_avatar.jpg",
   avatarText: "张",
   biography: [
     "张怀德（1935 年 -2018 年），山东省聊城市东昌府区人，中国共产党党员。1953 年参加工作，历任聊城地委办公室秘书、副主任，中共聊城地委宣传部副部长，聊城地区文化局局长等职。",
@@ -103,21 +103,21 @@ const relatedPeople = ref([
     name: "王建国",
     title: "文史专家",
     avatarText: "王",
-    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    gradient: "https://silin.wang/images/jixianlin_avatar.jpg",
     id: "wangjianguo"
   },
   {
     name: "李秀英",
     title: "捐赠代表",
     avatarText: "李",
-    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    gradient: "https://silin.wang/images/jixianlin_avatar.jpg",
     id: "lixiuying"
   },
   {
     name: "赵明诚",
     title: "第二届政协副主席",
     avatarText: "赵",
-    gradient: "https://silin.wang/public/images/jixianlin_avatar.jpg",
+    gradient: "https://silin.wang/images/jixianlin_avatar.jpg",
     id: "zhaomingcheng"
   }
 ]);

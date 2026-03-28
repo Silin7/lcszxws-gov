@@ -153,19 +153,19 @@ const relatedBooks = ref([
   {
     name: "《聊城文化史》",
     author: "聊城市政协委员会编",
-    cover: "/public/images/books/wenhuashi.jpg",
+    cover: "/images/books/wenhuashi.jpg",
     id: "1"
   },
   {
     name: "《聊城重要历史人物》",
     author: "聊城市政协文史资料委员会",
-    cover: "/public/images/books/lishirenwu.jpg",
+    cover: "/images/books/lishirenwu.jpg",
     id: "3"
   },
   {
     name: "《聊城脱贫攻坚口述史》",
     author: "聊城市政协文化史和学习委员会",
-    cover: "/public/images/books/tuopingongjian.jpg",
+    cover: "/images/books/tuopingongjian.jpg",
     id: "4"
   }
 ]);

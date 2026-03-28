@@ -9,7 +9,7 @@ const article = ref({
   time: "2023-10-20",
   summary:
     "大运河聊城段是中国大运河的重要组成部分，全长97.5公里。自元代开凿以来，在促进南北经济文化交流、推动沿线城市发展方面发挥了重要作用。聊城因运河而兴，形成了独特的运河文化，对聊城的历史发展和社会变迁产生了深远影响。",
-  image: '/public/images/huanghe01.jpeg',
+  image: '/images/huanghe01.jpeg',
   content: {
     sections: [
       {

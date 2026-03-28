@@ -10,7 +10,7 @@ const literatureData = ref({
   publishTime: "2010年",
   isbn: "978-7-209-05321-5",
   keywords: ["地方史", "通史", "聊城", "历史文化"],
-  coverGradient: "/public/images/books/dongchangfuzhi.jpg",
+  coverGradient: "/images/books/dongchangfuzhi.jpg",
   description: `《聊城通史》是一部全面系统记述聊城从古至今发展历程的权威史著。全书共分五卷，200余万字，涵盖政治、经济、文化、社会等各个领域，是研究聊城历史文化的必备参考书。
   
 该书以时间为经，以史实为纬，全面梳理了聊城地区从远古时期到21世纪初的历史发展脉络。编写团队历时八年，查阅了大量档案文献，进行了深入的田野调查，确保了史料的准确性和权威性。
@@ -138,21 +138,21 @@ const relatedBooks = ref([
   {
     name: "《运河文化研究》",
     author: "编著：李明华",
-    gradient: "/public/images/books/wenhuashi.jpg",
+    gradient: "/images/books/wenhuashi.jpg",
     coverText: "《运河文化研究》",
     id: "canal",
   },
   {
     name: "《聊城非遗图录》",
     author: "编委会",
-    gradient: "/public/images/books/wenhuashi.jpg",
+    gradient: "/images/books/wenhuashi.jpg",
     coverText: "《聊城非遗图录》",
     id: "intangible",
   },
   {
     name: "《政协史料选编》",
     author: "主编：张怀德",
-    gradient: "/public/images/books/wenhuashi.jpg",
+    gradient: "/images/books/wenhuashi.jpg",
     coverText: "《政协史料选编》",
     id: "zhengxie",
   },

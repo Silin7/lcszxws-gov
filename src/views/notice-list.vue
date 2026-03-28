@@ -22,19 +22,19 @@ const recommendList = ref([
     id: '1',
     title: '《聊城文化史》',
     desc: '全面系统记述聊城从古至今文化方面权威史著',
-    cover: '/public/images/books/wenhuashi.jpg',
+    cover: '/images/books/wenhuashi.jpg',
   },
   {
     id: '2',
     title: '《字圣仓颉》',
     desc: '对仓颉其人特别是山东东阿仓颉墓地的记载和论文汇集',
-    cover: '/public/images/books/zisheng.jpg',
+    cover: '/images/books/zisheng.jpg',
   },
   {
     id: '3',
     title: '《聊城重要历史人物》',
     desc: '介绍160多位在中国历史和聊城历史上产生重大影响的聊城籍或客籍人物',
-    cover: '/public/images/books/lishirenwu.jpg',
+    cover: '/images/books/lishirenwu.jpg',
   }
 ]);
 </script>

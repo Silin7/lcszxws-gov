@@ -32,77 +32,77 @@ const currentCategory = ref('all');
 const artworkList = ref([
   {
     id: 1,
-    image: '/public/images/art/art12.jpg',
+    image: '/images/art/art12.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 2,
-    image: '/public/images/art/art13.jpg',
+    image: '/images/art/art13.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 3,
-    image: '/public/images/art/art14.jpg',
+    image: '/images/art/art14.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 4,
-    image: '/public/images/art/art15.jpg',
+    image: '/images/art/art15.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 5,
-    image: '/public/images/art/art16.jpg',
+    image: '/images/art/art16.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 6,
-    image: '/public/images/art/art01.jpg',
+    image: '/images/art/art01.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 7,
-    image: '/public/images/art/fangjianguang001.jpeg',
+    image: '/images/art/fangjianguang001.jpeg',
     category: ['painting', 'landscape']
   },
   {
     id: 8,
-    image: '/public/images/art/art03.jpg',
+    image: '/images/art/art03.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 9,
-    image: '/public/images/art/art04.jpg',
+    image: '/images/art/art04.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 10,
-    image: '/public/images/art/art05.jpg',
+    image: '/images/art/art05.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 11,
-    image: '/public/images/art/art06.jpg',
+    image: '/images/art/art06.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 12,
-    image: '/public/images/art/art07.jpg',
+    image: '/images/art/art07.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 13,
-    image: '/public/images/art/art08.jpg',
+    image: '/images/art/art08.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 14,
-    image: '/public/images/art/art09.jpg',
+    image: '/images/art/art09.jpg',
     category: ['painting', 'landscape']
   },
   {
     id: 15,
-    image: '/public/images/art/art10.jpg',
+    image: '/images/art/art10.jpg',
     category: ['painting', 'landscape']
   }
 ]);
